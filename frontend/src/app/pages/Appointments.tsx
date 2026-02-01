@@ -1,4 +1,5 @@
-import { Plus, Search, Filter, CalendarDays, Clock3, Printer, Eye } from 'lucide-react';
+import { useState } from 'react';
+import { Plus, Search, Filter, CalendarDays, Clock3, Printer, Eye, X, ChevronDown } from 'lucide-react';
 
 const appointments = [
   { id: 1, patient: 'John Smith', doctor: 'Dr. Michael Chen', date: '2024-01-18', time: '09:00', type: 'Consultation', status: 'Scheduled' },
@@ -9,6 +10,8 @@ const appointments = [
 ];
 
 export function Appointments() {
+  const [isAddOpen, setIsAddOpen] = useState(false);
+
   return (
     <div>
       <div className="flex justify-between items-center mb-6">
@@ -16,7 +19,10 @@ export function Appointments() {
           <h1 className="text-3xl font-bold mb-2">Appointments</h1>
           <p className="text-gray-600">Manage and schedule patient appointments</p>
         </div>
-        <button className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg flex items-center gap-2">
+        <button
+          onClick={() => setIsAddOpen(true)}
+          className="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg flex items-center gap-2"
+        >
           <Plus size={20} />
           New Appointment
         </button>
@@ -109,6 +115,108 @@ export function Appointments() {
           </table>
         </div>
       </div>
+
+      {isAddOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <button
+            type="button"
+            className="absolute inset-0 bg-black/40"
+            onClick={() => setIsAddOpen(false)}
+            aria-label="Close add appointment"
+          />
+          <div className="relative w-full max-w-lg mx-4 bg-white rounded-2xl shadow-xl border border-gray-100">
+            <div className="flex items-start justify-between p-6 border-b border-gray-100">
+              <div>
+                <h2 className="text-lg font-semibold">Schedule New Appointment</h2>
+                <p className="text-sm text-gray-500">Fill in the details to schedule a new appointment.</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsAddOpen(false)}
+                className="p-2 rounded-full hover:bg-gray-100"
+                aria-label="Close"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-5">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Patient Name</label>
+                <input
+                  type="text"
+                  placeholder="Enter patient name"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Doctor</label>
+                <div className="relative">
+                  <select className="appearance-none w-full px-4 py-2.5 border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-500">
+                    <option>Select doctor</option>
+                    <option>Dr. Michael Chen</option>
+                    <option>Dr. Sarah Johnson</option>
+                  </select>
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Date</label>
+                  <div className="relative">
+                    <CalendarDays className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                    <input
+                      type="date"
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-500"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Time</label>
+                  <div className="relative">
+                    <Clock3 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                    <input
+                      type="time"
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-500"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Type</label>
+                <div className="relative">
+                  <select className="appearance-none w-full px-4 py-2.5 border border-gray-200 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-500">
+                    <option>Select type</option>
+                    <option>Consultation</option>
+                    <option>Follow-up</option>
+                    <option>Lab Test</option>
+                  </select>
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-3 p-6 border-t border-gray-100">
+              <button
+                type="button"
+                onClick={() => setIsAddOpen(false)}
+                className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-800"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="px-5 py-2 text-sm font-semibold bg-teal-600 text-white rounded-lg hover:bg-teal-700"
+              >
+                Schedule Appointment
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -16,7 +16,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="appointments" element={<Appointments />} />
           <Route path="patients" element={<Patients />} />
-          <Route path="opd-rx" element={<OPDRx />} />
+          <Route path="opd" element={<OPDRx />} />
           <Route path="lab-tests" element={<LabTests />} />
           <Route path="billing" element={<Billing />} />
           <Route path="settings" element={<Settings />} />
