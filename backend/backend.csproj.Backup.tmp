@@ -1,0 +1,85 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>def2b800-5800-4f59-a4eb-a7fb962ac6c3</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net8.0\backend.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net8.0\backend.GlobalUsings.g.cs" />
+    <Compile Include="obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cs" />
+    <Compile Include="obj\Release\net8.0\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\net8.0\backend.AssemblyInfo.cs" />
+    <Compile Include="obj\Release\net8.0\backend.GlobalUsings.g.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net8.0\appsettings.Development.json" />
+    <Content Include="bin\Debug\net8.0\appsettings.json" />
+    <Content Include="bin\Debug\net8.0\backend.deps.json" />
+    <Content Include="bin\Debug\net8.0\backend.runtimeconfig.json" />
+    <Content Include="bin\Debug\net8.0\backend.staticwebassets.endpoints.json" />
+    <Content Include="obj\backend.csproj.nuget.dgspec.json" />
+    <Content Include="obj\Debug\net8.0\ApiEndpoints.json" />
+    <Content Include="obj\Debug\net8.0\backend.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\net8.0\EndpointInfo\backend.json" />
+    <Content Include="obj\Debug\net8.0\rjsmcshtml.dswa.cache.json" />
+    <Content Include="obj\Debug\net8.0\rjsmrazor.dswa.cache.json" />
+    <Content Include="obj\Debug\net8.0\rpswa.dswa.cache.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.build.endpoints.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.build.json" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.references.upToDateCheck.txt" />
+    <Content Include="obj\Debug\net8.0\staticwebassets.removed.txt" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net8.0\backend.dll" />
+    <None Include="bin\Debug\net8.0\backend.exe" />
+    <None Include="bin\Debug\net8.0\backend.pdb" />
+    <None Include="bin\Debug\net8.0\Microsoft.OpenApi.dll" />
+    <None Include="bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll" />
+    <None Include="bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll" />
+    <None Include="bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll" />
+    <None Include="obj\backend.csproj.nuget.g.props" />
+    <None Include="obj\backend.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\net8.0\apphost.exe" />
+    <None Include="obj\Debug\net8.0\backend.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net8.0\backend.assets.cache" />
+    <None Include="obj\Debug\net8.0\backend.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net8.0\backend.csproj.BuildWithSkipAnalyzers" />
+    <None Include="obj\Debug\net8.0\backend.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net8.0\backend.csproj.Up2Date" />
+    <None Include="obj\Debug\net8.0\backend.dll" />
+    <None Include="obj\Debug\net8.0\backend.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net8.0\backend.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net8.0\backend.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="obj\Debug\net8.0\backend.pdb" />
+    <None Include="obj\Debug\net8.0\EndpointInfo\backend.OpenApiFiles.cache" />
+    <None Include="obj\Debug\net8.0\refint\backend.dll" />
+    <None Include="obj\Debug\net8.0\ref\backend.dll" />
+    <None Include="obj\Debug\net8.0\staticwebassets.build.json.cache" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\Release\net8.0\backend.AssemblyInfoInputs.cache" />
+    <None Include="obj\Release\net8.0\backend.assets.cache" />
+    <None Include="obj\Release\net8.0\backend.csproj.AssemblyReference.cache" />
+    <None Include="obj\Release\net8.0\backend.GeneratedMSBuildEditorConfig.editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.23" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Release\net8.0\" />
+    <Folder Include="obj\Debug\net8.0\staticwebassets\" />
+    <Folder Include="obj\Release\net8.0\refint\" />
+    <Folder Include="obj\Release\net8.0\ref\" />
+  </ItemGroup>
+
+</Project>

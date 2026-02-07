@@ -3,20 +3,88 @@
   "WorkspaceRootPath": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\services\\implementations\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:services\\implementations\\appointmentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:controllers\\valuescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\services\\interfaces\\iappointmentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:services\\interfaces\\iappointmentsservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\dtos\\appointments\\appointmentdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:dtos\\appointments\\appointmentdtos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\services\\implementations\\masterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:services\\implementations\\masterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\services\\interfaces\\imasterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:services\\interfaces\\imasterservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\services\\implementations\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:services\\implementations\\dashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\services\\interfaces\\idashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:services\\interfaces\\idashboardservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\dtos\\dashboard\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:dtos\\dashboard\\appointmentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:controllers\\mastercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\dtos\\dashboard\\todayappointmentsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:dtos\\dashboard\\todayappointmentsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\models\\systemoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:models\\systemoption.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:models\\client.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|c:\\users\\mdpar\\source\\repos\\clinicalerp\\backend\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E71DF5EC-0BAB-4D5D-8DA7-82A720F5295F}|backend.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,59 +94,274 @@
       "DocumentGroups": [
         {
           "DockedWidth": 231,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ValuesController.cs",
-              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\ValuesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ValuesController.cs",
-              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\ValuesController.cs*",
-              "RelativeToolTip": "Controllers\\ValuesController.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "IMasterService.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Interfaces\\IMasterService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IMasterService.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Interfaces\\IMasterService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IMasterService.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAgwDwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T06:55:51.807Z",
+              "WhenOpened": "2026-02-04T04:19:44.464Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AppointmentsController.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\AppointmentsController.cs",
+              "RelativeToolTip": "Controllers\\AppointmentsController.cs",
+              "ViewState": "AgIAABYBAAAAAAAAAAAcwIgAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T04:55:54.83Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "appsettings.Development.json",
-              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\appsettings.Development.json",
-              "RelativeDocumentMoniker": "appsettings.Development.json",
-              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\appsettings.Development.json",
-              "RelativeToolTip": "appsettings.Development.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-21T13:17:58.6Z",
+              "DocumentIndex": 1,
+              "Title": "IAppointmentsService.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Interfaces\\IAppointmentsService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IAppointmentsService.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Interfaces\\IAppointmentsService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IAppointmentsService.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAQwDoAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:33:25.721Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAACbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-21T13:18:07.189Z",
+              "Title": "AppointmentService.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Implementations\\AppointmentService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\AppointmentService.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Implementations\\AppointmentService.cs",
+              "RelativeToolTip": "Services\\Implementations\\AppointmentService.cs",
+              "ViewState": "AgIAACwBAAAAAAAAAAAAADUBAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T06:35:54.591Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
+              "Title": "AppointmentDtos.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\DTOs\\Appointments\\AppointmentDtos.cs",
+              "RelativeDocumentMoniker": "DTOs\\Appointments\\AppointmentDtos.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\DTOs\\Appointments\\AppointmentDtos.cs",
+              "RelativeToolTip": "DTOs\\Appointments\\AppointmentDtos.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAIwJwAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-06T11:22:39.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MasterService.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Implementations\\MasterService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\MasterService.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Implementations\\MasterService.cs",
+              "RelativeToolTip": "Services\\Implementations\\MasterService.cs",
+              "ViewState": "AgIAAJYAAAAAAAAAAAAIwLIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-04T04:19:56.754Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DashboardService.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Implementations\\DashboardService.cs",
+              "RelativeDocumentMoniker": "Services\\Implementations\\DashboardService.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Implementations\\DashboardService.cs",
+              "RelativeToolTip": "Services\\Implementations\\DashboardService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T08:33:40.388Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IDashboardService.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Interfaces\\IDashboardService.cs",
+              "RelativeDocumentMoniker": "Services\\Interfaces\\IDashboardService.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Services\\Interfaces\\IDashboardService.cs",
+              "RelativeToolTip": "Services\\Interfaces\\IDashboardService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowB0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T08:35:37.306Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "Controllers\\DashboardController.cs",
+              "ViewState": "AgIAADQAAAAAAAAAAAAwwEIAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T18:04:25.427Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "PatientController.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\PatientController.cs",
+              "RelativeDocumentMoniker": "Controllers\\PatientController.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\PatientController.cs",
+              "RelativeToolTip": "Controllers\\PatientController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T06:55:51.807Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AppointmentDto.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\DTOs\\Dashboard\\AppointmentDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Dashboard\\AppointmentDto.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\DTOs\\Dashboard\\AppointmentDto.cs",
+              "RelativeToolTip": "DTOs\\Dashboard\\AppointmentDto.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAiwB4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T11:08:20.529Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "Models\\Appointment.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Models\\Appointment.cs",
+              "RelativeToolTip": "Models\\Appointment.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAADwvyUAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T17:28:50.262Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T18:11:01.556Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAEAAAAAAAAAAAIBJwEIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-21T13:06:50.749Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MasterController.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\MasterController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MasterController.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Controllers\\MasterController.cs",
+              "RelativeToolTip": "Controllers\\MasterController.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAAAcwGcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T11:22:05.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "TodayAppointmentsDto.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\DTOs\\Dashboard\\TodayAppointmentsDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\Dashboard\\TodayAppointmentsDto.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\DTOs\\Dashboard\\TodayAppointmentsDto.cs",
+              "RelativeToolTip": "DTOs\\Dashboard\\TodayAppointmentsDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-05T11:03:31.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-05T11:49:07.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-01-21T13:18:07.189Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SystemOption.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Models\\SystemOption.cs",
+              "RelativeDocumentMoniker": "Models\\SystemOption.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Models\\SystemOption.cs",
+              "RelativeToolTip": "Models\\SystemOption.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T10:04:19.361Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-02-02T12:37:25.182Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Client.cs",
+              "DocumentMoniker": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Models\\Client.cs",
+              "RelativeDocumentMoniker": "Models\\Client.cs",
+              "ToolTip": "C:\\Users\\mdpar\\Source\\Repos\\ClinicalERP\\backend\\Models\\Client.cs",
+              "RelativeToolTip": "Models\\Client.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAqwBEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-02T17:31:06.095Z"
             }
           ]
         }
