@@ -119,6 +119,20 @@ namespace backend.Controllers
             return Ok(result);
         }
 
+        [HttpGet("get-departments")]
+        public async Task<IActionResult> GetAllDepartments()
+        {
+            var result = await _masterService.GetAllDepartments();
+            return Ok(result);
+        }
+
+        [HttpGet("get-positions")]
+        public async Task<IActionResult> GetAllDesignations()
+        {
+            var result = await _masterService.GetAllDesignations();
+                return Ok(result);
+        }
+
 
     }
 }

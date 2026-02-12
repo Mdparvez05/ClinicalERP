@@ -26,6 +26,7 @@ namespace backend.Controllers
         /// <param name="appointmentDto">Appointment creation data</param>
         /// <returns>Created appointment details</returns>
         [HttpPost]
+        [Route("add-appointment")]
         public async Task<IActionResult> CreateAppointment([FromBody] CreateAppointmentDto appointmentDto)
         {
             try
@@ -120,28 +121,6 @@ namespace backend.Controllers
             {
                 _logger.LogError(ex, "Error in GetAppointments endpoint");
                 return StatusCode(500, new { message = "An error occurred while retrieving appointments" });
-            }
-        }
-
-        /// <summary>
-        /// Gets all available doctors/employees
-        /// </summary>
-        /// <returns>List of doctors</returns>
-        [HttpGet("doctors")]
-        public async Task<IActionResult> GetAllDoctors()
-        {
-            try
-            {
-                _logger.LogInformation("GetAllDoctors endpoint called");
-                
-                var doctors = await _appointmentsService.GetAllDoctorsAsync();
-                
-                return Ok(doctors);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error in GetAllDoctors endpoint");
-                return StatusCode(500, new { message = "An error occurred while retrieving doctors" });
             }
         }
 
