@@ -151,7 +151,7 @@ namespace backend.Services.Implementations
                     MedicalRecordNumber = patientDto.MedicalRecordNumber.Trim(),
                     LastAppointmentDate = patientDto.LastAppointmentDate ?? now,
                     IsSubscribed = patientDto.IsSubscribed,
-                    IsActive = true,
+                    IsActive = patientDto.IsActive ?? true,
                     CreatedBy = employeeId,
                     UpdatedBy = employeeId,
                     CreatedOn = now,

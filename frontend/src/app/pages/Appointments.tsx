@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Plus, Search, Filter, CalendarDays, Clock3, Printer, Eye, X, ChevronDown } from 'lucide-react';
 
 type AppointmentDto = {
@@ -65,6 +66,7 @@ const getDoctorDisplayName = (doctor: DoctorOption) => {
 
 export function Appointments() {
   const [isAddOpen, setIsAddOpen] = useState(false);
+  const navigate = useNavigate();
   const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? 'https://localhost:5001';
   const [appointments, setAppointments] = useState<AppointmentDto[]>([]);
   const [appointmentTypes, setAppointmentTypes] = useState<string[]>([]);
@@ -318,7 +320,7 @@ export function Appointments() {
 
     const loadDoctors = async () => {
       try {
-        const response = await fetch(`${apiBaseUrl}/api/appointments/doctors`, {
+        const response = await fetch(`${apiBaseUrl}/api/doctors/list-doctors`, {
           signal: controller.signal,
         });
 
@@ -459,10 +461,16 @@ export function Appointments() {
                   </td>
                   <td className="px-6 py-4 text-right">
                     <div className="flex justify-end gap-3 text-sm font-medium">
-                      <button className="text-primary-600 hover:text-primary-700 flex items-center gap-1">
+                      <button
+                        className="text-primary-600 hover:text-primary-700 flex items-center gap-1"
+                        onClick={() => navigate(`/appointments/${appt.id}`)}
+                      >
                         <Eye size={16} /> View
                       </button>
-                      <button className="text-gray-600 hover:text-gray-800 flex items-center gap-1">
+                      <button
+                        className="text-gray-600 hover:text-gray-800 flex items-center gap-1"
+                        onClick={() => navigate(`/appointments/${appt.id}/print`)}
+                      >
                         <Printer size={16} /> Print
                       </button>
                     </div>

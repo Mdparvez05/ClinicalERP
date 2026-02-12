@@ -52,6 +52,7 @@ type PatientFormState = {
   medicalRecordNumber: string;
   lastAppointmentDate: string;
   isSubscribed: boolean;
+  isActive: boolean;
 };
 
 const emptyForm: PatientFormState = {
@@ -70,6 +71,7 @@ const emptyForm: PatientFormState = {
   medicalRecordNumber: '',
   lastAppointmentDate: '',
   isSubscribed: false,
+  isActive: true,
 };
 
 const formatDate = (value?: string | null) => {
@@ -192,6 +194,7 @@ export function Patients() {
         medicalRecordNumber: data.medicalRecordNumber ?? '',
         lastAppointmentDate: data.lastAppointmentDate ? data.lastAppointmentDate.slice(0, 10) : '',
         isSubscribed: data.isSubscribed ?? false,
+        isActive: data.isActive ?? true,
       });
       setEditingPatientId(patientId);
       setIsEditOpen(true);
@@ -260,6 +263,7 @@ export function Patients() {
         medicalRecordNumber: formState.medicalRecordNumber.trim(),
         lastAppointmentDate: formState.lastAppointmentDate || undefined,
         isSubscribed: formState.isSubscribed,
+        isActive: formState.isActive,
       };
 
       const isEdit = Boolean(editingPatientId);
@@ -443,7 +447,7 @@ export function Patients() {
             onClick={closeModal}
             aria-label="Close add patient"
           />
-          <div className="relative w-full max-w-2xl mx-4 bg-white rounded-2xl shadow-xl border border-gray-100">
+          <div className="relative w-full max-w-2xl mx-4 bg-white rounded-2xl shadow-xl border border-gray-100 flex max-h-[90vh] flex-col">
             <div className="flex items-start justify-between p-6 border-b border-gray-100">
               <div>
                 <h2 className="text-lg font-semibold">{isEditOpen ? 'Edit Patient' : 'Add New Patient'}</h2>
@@ -463,7 +467,7 @@ export function Patients() {
               </button>
             </div>
 
-            <div className="p-6 space-y-5">
+            <div className="p-6 space-y-5 overflow-y-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
@@ -615,16 +619,26 @@ export function Patients() {
                     className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-500"
                   />
                 </div>
-                <div className="flex items-center gap-2 pt-8">
-                  <input
-                    id="isSubscribed"
-                    type="checkbox"
-                    checked={formState.isSubscribed}
-                    onChange={(event) => setFormState((prev) => ({ ...prev, isSubscribed: event.target.checked }))}
-                    className="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
-                  />
-                  <label htmlFor="isSubscribed" className="text-sm text-gray-700">
+                <div className="flex items-center gap-6 pt-8">
+                  <label className="flex items-center gap-2 text-sm text-gray-700">
+                    <input
+                      id="isSubscribed"
+                      type="checkbox"
+                      checked={formState.isSubscribed}
+                      onChange={(event) => setFormState((prev) => ({ ...prev, isSubscribed: event.target.checked }))}
+                      className="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
+                    />
                     Subscribed to updates
+                  </label>
+                  <label className="flex items-center gap-2 text-sm text-gray-700">
+                    <input
+                      id="isActive"
+                      type="checkbox"
+                      checked={formState.isActive}
+                      onChange={(event) => setFormState((prev) => ({ ...prev, isActive: event.target.checked }))}
+                      className="h-4 w-4 rounded border-gray-300 text-teal-600 focus:ring-teal-500"
+                    />
+                    Active patient
                   </label>
                 </div>
               </div>

@@ -53,12 +53,6 @@ namespace backend.Services.Interfaces
         Task<bool> CompleteAppointmentAsync(int id);
 
         /// <summary>
-        /// Gets all available doctors/employees
-        /// </summary>
-        /// <returns>List of doctors</returns>
-        Task<List<DoctorDto>> GetAllDoctorsAsync();
-
-        /// <summary>
         /// Gets appointments for a specific date
         /// </summary>
         /// <param name="date">Date to filter appointments</param>

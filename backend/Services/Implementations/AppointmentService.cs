@@ -303,37 +303,7 @@ namespace backend.Services.Implementations
             }
         }
 
-        public async Task<List<DoctorDto>> GetAllDoctorsAsync()
-        {
-            try
-            {
-                _logger.LogInformation("Fetching all active doctors/employees");
-
-                var doctors = await _context.Employees
-                    .Where(e => e.IsActive)
-                    .Select(e => new DoctorDto
-                    {
-                        Id = e.Id,                                    // ← Essential for AssignedEmployeeId
-                        FirstName = e.FirstName,
-                        LastName = e.LastName,
-                        FullName = e.FirstName + " " + e.LastName,   // ← Essential for AssignedEmployeeName
-                        Email = e.Email,
-                        Phone = e.Phone,
-                        IsActive = e.IsActive
-                    })
-                    .OrderBy(d => d.LastName)
-                    .ThenBy(d => d.FirstName)
-                    .ToListAsync();
-
-                _logger.LogInformation("Successfully retrieved {Count} doctors", doctors.Count);
-                return doctors;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while fetching doctors");
-                throw;
-            }
-        }
+       
 
         public async Task<List<AppointmentDetailDto>> GetAppointmentsByDateAsync(DateTime date)
         {

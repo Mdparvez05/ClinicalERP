@@ -13,18 +13,8 @@ builder.Services.AddSwaggerGen();
 
 // FORCE local connection string - Override any environment variables
 string connectionString;
-if (builder.Environment.IsDevelopment())
-{
-    // Force local connection for development
-    connectionString = "Server=localhost\\SQLEXPRESS;Database=clinicalerp;Trusted_Connection=True;TrustServerCertificate=True;Connect Timeout=60";
-    Console.WriteLine("?? FORCED Development connection string");
-}
-else
-{
-    // Use configuration for production
     connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
         ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-}
 
 builder.Services.AddCors(options =>
 {
@@ -44,12 +34,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Register services
 builder.Services.AddScoped<IMasterService, MasterService>();
 builder.Services.AddScoped<IDashboardService, DashboardService>();
-builder.Services.AddScoped<IAppointmentsService, AppointmentService>(); // ? Missing registration!
+builder.Services.AddScoped<IAppointmentsService, AppointmentService>();
+builder.Services.AddScoped<IDoctorService, DoctorService>(); // ? Add missing DoctorService
 builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<ISettingsService, SettingsService>();
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello world!");
+//app.MapGet("/", () => "Hello world!");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -59,9 +52,13 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 
 app.UseCors("Frontend");
 app.UseAuthorization();
 app.MapControllers();
+app.MapFallbackToFile("index.html");
 
 app.Run();
