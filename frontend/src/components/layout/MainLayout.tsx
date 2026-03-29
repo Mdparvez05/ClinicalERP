@@ -14,10 +14,10 @@ export function MainLayout() {
         />
       </div>
       <main
-        className={`main-content flex-1 p-8 transition-all duration-300 ${
+        className={`main-content flex-1 p-3 transition-all duration-300 ${
           isSidebarCollapsed ? 'ml-20' : 'ml-64'
         }`}
-      >
+      > 
         <Outlet />
       </main>
     </div>

@@ -17,6 +17,7 @@ type AppointmentDto = {
 };
 
 type AppointmentRow = {
+  name: string;
   id: number;
   patient: string;
   doctor: string;
@@ -36,6 +37,7 @@ type PatientSearchResult = {
 
 type DoctorOption = {
   id: number;
+  name? : string | null;
   firstName?: string | null;
   lastName?: string | null;
   fullName?: string | null;
@@ -60,8 +62,8 @@ const getPatientDisplayName = (patient: PatientSearchResult) => {
 };
 
 const getDoctorDisplayName = (doctor: DoctorOption) => {
-  if (doctor.fullName?.trim()) return doctor.fullName.trim();
-  return `${doctor.firstName ?? ''} ${doctor.lastName ?? ''}`.trim();
+  if (doctor.name?.trim()) return doctor.name.trim();
+  //return `${doctor.name ?? ''}`.trim();
 };
 
 export function Appointments() {
@@ -98,6 +100,7 @@ export function Appointments() {
   const appointmentRows = useMemo<AppointmentRow[]>(() => {
     return appointments.map((appt) => ({
       id: appt.id,
+      name: appt.name ?? '—',
       patient: appt.clientName ?? '—',
       doctor: appt.employeeName ?? '—',
       date: formatDate(appt.scheduledOn ?? null),
@@ -117,6 +120,7 @@ export function Appointments() {
         || appt.type.toLowerCase().includes(query)
         || appt.status.toLowerCase().includes(query)
         || appt.date.toLowerCase().includes(query)
+        || appt.name.toLowerCase().includes(query)
         || appt.time.toLowerCase().includes(query);
 
       const matchesStatus = statusFilter === 'All Status' || appt.status === statusFilter;
@@ -274,10 +278,10 @@ export function Appointments() {
     const doctor = doctors.find((item) => item.id === selectedDoctorId);
     const doctorName = doctor ? getDoctorDisplayName(doctor) : '';
 
-    if (!doctorName) {
-      setSubmitError('Please select a valid doctor.');
-      return;
-    }
+    // if (!doctorName) {
+    //   setSubmitError('Please select a valid doctor.');
+    //   return;
+    // }
 
     const payload = {
       clientId: selectedPatientId,
@@ -297,7 +301,7 @@ export function Appointments() {
       setIsSubmitting(true);
       setSubmitError(null);
 
-      const response = await fetch(`${apiBaseUrl}/api/appointments`, {
+      const response = await fetch(`${apiBaseUrl}/api/appointments/add-appointment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -362,7 +366,7 @@ export function Appointments() {
       )}
 
       <div className="bg-white rounded-lg shadow-md">
-        <div className="p-6 border-b flex flex-wrap gap-3 items-center">
+        <div className="p-4 border-b flex flex-wrap gap-3 items-center">
           <div className="flex-1 min-w-[240px] relative">
             <Search className="absolute left-3 top-3 text-gray-400" size={20} />
             <input
@@ -406,6 +410,7 @@ export function Appointments() {
           <table className="w-full">
             <thead className="bg-gray-50">
               <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase"> Name</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Patient</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Doctor</th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date & Time</th>
@@ -431,6 +436,9 @@ export function Appointments() {
               )}
               {!isLoading && filteredAppointments.map((appt) => (
                 <tr key={appt.id} className="hover:bg-gray-50">
+                  <td className="px-6 py-4 text-gray-600 max-w-[150px] truncate">
+                    {appt.name}
+                  </td>
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center">
@@ -491,7 +499,7 @@ export function Appointments() {
             aria-label="Close add appointment"
           />
           <div className="relative w-full max-w-lg mx-4 bg-white rounded-2xl shadow-xl border border-gray-100 flex max-h-[90vh] flex-col">
-            <div className="flex items-start justify-between p-6 border-b border-gray-100">
+            <div className="flex items-start justify-between p-4 border-b border-gray-100">
               <div>
                 <h2 className="text-lg font-semibold">Schedule New Appointment</h2>
                 <p className="text-sm text-gray-500">Fill in the details to schedule a new appointment.</p>
@@ -506,9 +514,10 @@ export function Appointments() {
               </button>
             </div>
 
-            <div className="p-6 space-y-5 overflow-y-auto">
+            <div className="p-4 space-y-5 overflow-y-auto">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Patient Name</label>
+                  
                 <div className="relative">
                   <input
                     type="text"
@@ -525,7 +534,9 @@ export function Appointments() {
                       window.setTimeout(() => setShowPatientSuggestions(false), 150);
                     }}
                     className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/30 focus:border-teal-500"
+                    
                   />
+                  
                   {showPatientSuggestions && (
                     <div className="absolute z-10 mt-2 w-full rounded-lg border border-gray-200 bg-white shadow-lg">
                       {isPatientLoading && (
@@ -534,8 +545,8 @@ export function Appointments() {
                       {!isPatientLoading && patientSearchError && (
                         <div className="px-4 py-3 text-sm text-red-600">{patientSearchError}</div>
                       )}
-                      {!isPatientLoading && !patientSearchError && patientSuggestions.length === 0 && (
-                        <div className="px-4 py-3 text-sm text-gray-500">No matches found.</div>
+                      {!isPatientLoading && !patientSearchError  && patientSuggestions.length ===0 &&  (
+                        <div className="px-4 py-3 text-sm text-gray-500">No patients found.</div>
                       )}
                       {!isPatientLoading && !patientSearchError && patientSuggestions.length > 0 && (
                         <ul className="max-h-56 overflow-y-auto py-1">
@@ -565,6 +576,7 @@ export function Appointments() {
                       )}
                     </div>
                   )}
+                  <Search className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={20} />
                 </div>
               </div>
 
@@ -582,7 +594,7 @@ export function Appointments() {
                     <option value="">Select doctor</option>
                     {doctors.map((doctor) => (
                       <option key={doctor.id} value={doctor.id}>
-                        {getDoctorDisplayName(doctor) || `Doctor #${doctor.id}`}
+                        {getDoctorDisplayName(doctor) || `Dr. ${doctor.name}`}
                       </option>
                     ))}
                   </select>
@@ -604,7 +616,7 @@ export function Appointments() {
                     <option value="">Select prescribing doctor (optional)</option>
                     {doctors.map((doctor) => (
                       <option key={doctor.id} value={doctor.id}>
-                        {getDoctorDisplayName(doctor) || `Doctor #${doctor.id}`}
+                        {getDoctorDisplayName(doctor) || `Dr. ${doctor.name}`}
                       </option>
                     ))}
                   </select>
@@ -616,7 +628,7 @@ export function Appointments() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Date</label>
                   <div className="relative">
-                    <CalendarDays className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                   
                     <input
                       type="date"
                       value={scheduledDate}
@@ -628,7 +640,7 @@ export function Appointments() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Time</label>
                   <div className="relative">
-                    <Clock3 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400" size={16} />
+                    
                     <input
                       type="time"
                       value={scheduledTime}
@@ -713,7 +725,7 @@ export function Appointments() {
               </div>
             </div>
 
-            <div className="flex items-center justify-end gap-3 p-6 border-t border-gray-100">
+            <div className="flex items-center justify-end gap-3 p-4 border-t border-gray-100">
               {submitError && (
                 <div className="mr-auto text-sm text-red-600">
                   {submitError}

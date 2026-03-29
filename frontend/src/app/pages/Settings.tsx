@@ -201,10 +201,10 @@ export function Settings() {
           </div>
         </div>
 
-        <div className="p-6">
+        <div className="p-4">
           {activeTab === 'general' && (
-            <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-              <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
+              <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                 <div className="mb-6 flex items-center justify-between">
                   <div>
                     <h3 className="text-lg font-semibold text-slate-900">Clinic Information</h3>
@@ -463,7 +463,7 @@ export function Settings() {
               </div>
 
               <div className="space-y-6">
-                <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+                <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                   <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                     Clinic Snapshot
                   </h4>
@@ -492,7 +492,7 @@ export function Settings() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+                <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                   <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                     Branding
                   </h4>
@@ -516,8 +516,8 @@ export function Settings() {
           )}
 
           {activeTab === 'notifications' && (
-            <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-              <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
+              <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                 <h3 className="text-lg font-semibold text-slate-900">Notifications</h3>
                 <p className="text-sm text-slate-500">Choose how your team gets updates.</p>
 
@@ -559,7 +559,7 @@ export function Settings() {
               </div>
 
               <div className="space-y-6">
-                <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+                <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                   <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                     Delivery Channels
                   </h4>
@@ -590,7 +590,7 @@ export function Settings() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+                <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                   <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                     Quiet Hours
                   </h4>
@@ -607,8 +607,8 @@ export function Settings() {
           )}
 
           {activeTab === 'security' && (
-            <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-              <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div className="grid gap-4 lg:grid-cols-[2fr_1fr]">
+              <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                 <h3 className="text-lg font-semibold text-slate-900">Security</h3>
                 <p className="text-sm text-slate-500">Protect your data and manage access.</p>
 
@@ -655,7 +655,7 @@ export function Settings() {
               </div>
 
               <div className="space-y-6">
-                <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+                <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                   <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                     Active Sessions
                   </h4>
@@ -681,7 +681,7 @@ export function Settings() {
                   </div>
                 </div>
 
-                <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+                <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
                   <h4 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
                     Security Status
                   </h4>
@@ -696,7 +696,7 @@ export function Settings() {
           )}
 
           {activeTab === 'team' && (
-            <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm">
+            <div className="rounded-2xl border border-slate-100 bg-white p-4 shadow-sm">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
                   <h3 className="text-lg font-semibold text-slate-900">Team</h3>

@@ -244,7 +244,7 @@ export function AddMember() {
         </button>
       </div>
 
-      <form onSubmit={handleSubmit} className="rounded-3xl border border-white/60 bg-white p-6 shadow-lg">
+      <form onSubmit={handleSubmit} className="rounded-3xl border border-white/60 bg-white p-4 shadow-lg">
         <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
           <UserPlus size={16} />
           Member Details
@@ -266,7 +266,7 @@ export function AddMember() {
           </div>
         )}
 
-        <div className="mt-6 grid gap-6 lg:grid-cols-2">
+        <div className="mt-6 grid gap-4 lg:grid-cols-2">
           <div>
             <label className="mb-2 block text-sm font-medium text-slate-700">First Name</label>
             <input
@@ -418,7 +418,7 @@ export function AddMember() {
           <h2 className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
             Qualifications and Banking
           </h2>
-          <div className="mt-4 grid gap-6 lg:grid-cols-2">
+          <div className="mt-4 grid gap-4 lg:grid-cols-2">
             <div>
               <label className="mb-2 block text-sm font-medium text-slate-700">Highest Qualification</label>
               <input

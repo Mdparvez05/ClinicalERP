@@ -105,7 +105,7 @@ export function AppointmentPrint() {
         </div>
       </div>
 
-      <div className="print-area rounded-3xl border border-white/60 bg-white p-6 shadow-lg">
+      <div className="print-area rounded-3xl border border-white/60 bg-white p-4 shadow-lg">
         {error && (
           <div className="rounded-xl border border-rose-100 bg-rose-50 px-4 py-3 text-sm text-rose-700">
             {error}
@@ -119,7 +119,7 @@ export function AppointmentPrint() {
         )}
 
         {appointment && !isLoading && (
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="grid gap-4 lg:grid-cols-2">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Patient</p>
               <p className="mt-1 text-sm font-medium text-slate-900">{appointment.clientName || '—'}</p>

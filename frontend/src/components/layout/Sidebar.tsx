@@ -7,7 +7,7 @@ import {
   TestTube,
   CreditCard,
   Settings,
-  Menu,
+  // Menu,
   ChevronLeft,
   ChevronRight,
 } from 'lucide-react';
@@ -22,8 +22,8 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
     { icon: LayoutDashboard, label: 'Dashboard', path: '/' },
     { icon: Calendar, label: 'Appointments', path: '/appointments' },
     { icon: Users, label: 'Patients', path: '/patients' },
-    { icon: FileText, label: 'OPD Rx', path: '/opd' },
     { icon: TestTube, label: 'Lab Tests', path: '/lab-tests' },
+    { icon: FileText, label: 'OPD Rx', path: '/opd' },
     { icon: CreditCard, label: 'Billing', path: '/billing' },
     { icon: Settings, label: 'Settings', path: '/settings' },
   ];
@@ -31,7 +31,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
 
   return (
     <aside
-      className={`bg-gray-900 text-white h-screen fixed left-0 top-0 overflow-y-auto transition-all duration-300 ${
+      className={`bg-gray-900 z-10 text-white h-screen fixed left-0 top-0 overflow-y-auto transition-all duration-300 ${
         collapsed ? 'w-20' : 'w-64'
       }`}
     >
@@ -81,17 +81,17 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
       </nav>
 
       <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800">
-        <button className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 rounded-lg transition-colors">
+        {/* <button className="w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-800 rounded-lg transition-colors">
           <Menu size={20} />
           {!collapsed && <span className="text-sm">Switch Role</span>}
-        </button>
-        <div className="mt-2 flex items-center gap-3 px-4 py-2">
+        </button> */}
+        <div className="flex items-center gap-3 px-4">
           <div className="w-10 h-10 bg-primary-500 rounded-full flex items-center justify-center">
-            <span className="text-white font-bold">DS</span>
+            <span className="text-white font-bold">A</span>
           </div>
           {!collapsed && (
             <div>
-              <p className="text-sm font-medium">Dr. Sarah Johnson</p>
+              <p className="text-sm font-medium">Admin</p>
               <p className="text-xs text-gray-400">Administrator</p>
             </div>
           )}

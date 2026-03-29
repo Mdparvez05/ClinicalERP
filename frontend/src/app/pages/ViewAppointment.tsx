@@ -26,6 +26,7 @@ type AppointmentDetailDto = {
 
 type DoctorOption = {
   id: number;
+  name?: string | null; 
   firstName?: string | null;
   lastName?: string | null;
   fullName?: string | null;
@@ -77,6 +78,7 @@ const toTimeInputValue = (value?: string | null) => {
 };
 
 const getDoctorDisplayName = (doctor: DoctorOption) => {
+  console.log('Doctor option:', doctor);
   if (doctor.fullName?.trim()) return doctor.fullName.trim();
   return `${doctor.firstName ?? ''} ${doctor.lastName ?? ''}`.trim();
 };
@@ -186,7 +188,7 @@ export function ViewAppointment() {
         const [typesRes, statusesRes, doctorsRes] = await Promise.all([
           fetch(`${apiBaseUrl}/api/master/appointmenttypes`, { signal: controller.signal }),
           fetch(`${apiBaseUrl}/api/master/appointment-statuses`, { signal: controller.signal }),
-          fetch(`${apiBaseUrl}/api/appointments/doctors`, { signal: controller.signal }),
+          fetch(`${apiBaseUrl}/api/doctors/list-doctors`, { signal: controller.signal }),
         ]);
 
         if (!typesRes.ok) throw new Error('Failed to load appointment types.');
@@ -246,10 +248,10 @@ export function ViewAppointment() {
     const doctor = doctors.find((item) => item.id === formState.assignedEmployeeId);
     const doctorName = doctor ? getDoctorDisplayName(doctor) : '';
 
-    if (!doctorName) {
-      setSaveError('Please select a valid doctor.');
-      return;
-    }
+    // if (!doctorName) {
+    //   setSaveError('Please select a valid doctor.');
+    //   return;
+    // }
 
     const payload = {
       id: appointment.id,
@@ -363,15 +365,15 @@ export function ViewAppointment() {
       )}
 
       {isLoading && (
-        <div className="rounded-lg bg-white p-6 shadow-md">
+        <div className="rounded-lg bg-white p-4 shadow-md">
           <p className="text-gray-600">Loading appointment details...</p>
         </div>
       )}
 
       {!isLoading && appointment && (
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
           <div className="space-y-6 lg:col-span-2">
-            <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="rounded-lg bg-white p-4 shadow-md">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-cyan-100 text-cyan-700">
@@ -429,7 +431,7 @@ export function ViewAppointment() {
               )}
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="rounded-lg bg-white p-4 shadow-md">
               <h3 className="text-lg font-semibold mb-4">Patient</h3>
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div className="flex items-start gap-3">
@@ -471,7 +473,7 @@ export function ViewAppointment() {
               </div>
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="rounded-lg bg-white p-4 shadow-md">
               <h3 className="text-lg font-semibold mb-4">Clinical Notes</h3>
               <div className="space-y-4">
                 <div>
@@ -501,7 +503,7 @@ export function ViewAppointment() {
           </div>
 
           <div className="space-y-6">
-            <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="rounded-lg bg-white p-4 shadow-md">
               <h3 className="text-lg font-semibold mb-4">Schedule</h3>
               {isEditing ? (
                 <div className="space-y-3">
@@ -550,7 +552,7 @@ export function ViewAppointment() {
               )}
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="rounded-lg bg-white p-4 shadow-md">
               <h3 className="text-lg font-semibold mb-4">Clinician</h3>
               {isEditing ? (
                 <div className="space-y-4">
@@ -567,7 +569,7 @@ export function ViewAppointment() {
                       <option value="">Select doctor</option>
                       {doctors.map((doctor) => (
                         <option key={doctor.id} value={doctor.id}>
-                          {getDoctorDisplayName(doctor) || `Doctor #${doctor.id}`}
+                          {getDoctorDisplayName(doctor) || `Dr. ${doctor.name}`}
                         </option>
                       ))}
                     </select>
@@ -585,7 +587,7 @@ export function ViewAppointment() {
                       <option value="">Select prescribing doctor (optional)</option>
                       {doctors.map((doctor) => (
                         <option key={doctor.id} value={doctor.id}>
-                          {getDoctorDisplayName(doctor) || `Doctor #${doctor.id}`}
+                          {getDoctorDisplayName(doctor) || `Dr. ${doctor.name}`}
                         </option>
                       ))}
                     </select>
@@ -611,7 +613,7 @@ export function ViewAppointment() {
               )}
             </div>
 
-            <div className="rounded-lg bg-white p-6 shadow-md">
+            <div className="rounded-lg bg-white p-4 shadow-md">
               <h3 className="text-lg font-semibold mb-4">Status</h3>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-500">Current status</span>

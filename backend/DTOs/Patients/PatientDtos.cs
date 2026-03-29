@@ -101,6 +101,8 @@ namespace backend.DTOs.Patients
         public DateTime? LastAppointmentDate { get; set; }
 
         public bool IsSubscribed { get; set; }
+
+        public bool? IsActive { get; set; }
     }
 
     public class UpdatePatientDto

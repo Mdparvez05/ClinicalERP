@@ -82,7 +82,7 @@ export function Dashboard() {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold mb-2">Welcome back, Dr.</h1>
+      <h1 className="text-3xl font-bold mb-2">Welcome back!</h1>
       <p className="text-gray-600 mb-8">Here's what's happening at your clinic today</p>
 
       {error && (
@@ -91,8 +91,8 @@ export function Dashboard() {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-        <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="bg-white rounded-lg shadow-md p-4">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
               <Calendar className="text-blue-600" size={24} />
@@ -109,7 +109,7 @@ export function Dashboard() {
           <p className="text-gray-400 text-xs mt-1">vs last week</p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-lg shadow-md p-4">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
               <TestTube className="text-red-600" size={24} />
@@ -124,7 +124,7 @@ export function Dashboard() {
           <p className="text-gray-400 text-xs mt-1">vs last week</p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-lg shadow-md p-4">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-cyan-100 rounded-lg flex items-center justify-center">
               <Users className="text-cyan-600" size={24} />
@@ -139,7 +139,7 @@ export function Dashboard() {
           <p className="text-gray-400 text-xs mt-1">vs last week</p>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-lg shadow-md p-4">
           <div className="flex items-center justify-between mb-4">
             <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
               <DollarSign className="text-green-600" size={24} />
@@ -156,8 +156,8 @@ export function Dashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white rounded-lg shadow-md p-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="bg-white rounded-lg shadow-md p-4">
           <h3 className="text-xl font-semibold mb-2">Weekly Revenue</h3>
           <p className="text-gray-600 text-sm mb-6">Revenue trends for this week</p>
           <ResponsiveContainer width="100%" height={250}>
@@ -171,7 +171,7 @@ export function Dashboard() {
           </ResponsiveContainer>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-white rounded-lg shadow-md p-4">
           <h3 className="text-xl font-semibold mb-6">Today's Appointments</h3>
           <div className="space-y-4">
             {!isLoading && formattedAppointments.length === 0 && (

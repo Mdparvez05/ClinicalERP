@@ -104,7 +104,7 @@ export function EmployeeDetails() {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-white/60 bg-white p-6 shadow-lg">
+      <div className="rounded-3xl border border-white/60 bg-white p-4 shadow-lg">
         <div className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
           <User size={16} />
           Profile
@@ -123,7 +123,7 @@ export function EmployeeDetails() {
         )}
 
         {employee && !isLoading && (
-          <div className="mt-6 grid gap-6 lg:grid-cols-2">
+          <div className="mt-6 grid gap-4 lg:grid-cols-2">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Role</p>
               <p className="mt-1 text-sm font-medium text-slate-900">{roleLabel}</p>

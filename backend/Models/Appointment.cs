@@ -11,7 +11,6 @@ namespace backend.Models;
 [Index("PrescribedBy", Name = "IX_Appointments_PrescribedBy")]
 [Index("ScheduledOn", Name = "IX_Appointments_ScheduledOn")]
 [Index("AppointmentStatus", Name = "IX_Appointments_Status")]
-[Index("ParentId", Name = "IX_Appointments_ParentId")]
 public partial class Appointment
 {
     [Key]
@@ -19,7 +18,9 @@ public partial class Appointment
 
     [StringLength(50)]
     [Unicode(false)]
-    public string? Type { get; set; }  // Changed from int? to string
+    public string? Type { get; set; }
+
+    public int? TypeId { get; set; }
 
     public int? ParentId { get; set; }
 
@@ -59,7 +60,6 @@ public partial class Appointment
     [Unicode(false)]
     public string? AssignedEmployeeName { get; set; }
 
-    // Navigation properties
     [ForeignKey("AssignedEmployeeId")]
     [InverseProperty("AppointmentAssignedEmployees")]
     public virtual Employee? AssignedEmployee { get; set; }
@@ -68,14 +68,14 @@ public partial class Appointment
     [InverseProperty("Appointments")]
     public virtual Client? Client { get; set; }
 
+    [InverseProperty("Parent")]
+    public virtual ICollection<Appointment> InverseParent { get; set; } = new List<Appointment>();
+
+    [ForeignKey("ParentId")]
+    [InverseProperty("InverseParent")]
+    public virtual Appointment? Parent { get; set; }
+
     [ForeignKey("PrescribedBy")]
     [InverseProperty("AppointmentPrescribedByNavigations")]
     public virtual Employee? PrescribedByNavigation { get; set; }
-
-    [ForeignKey("ParentId")]
-    [InverseProperty("InverseParentAppointments")]
-    public virtual Appointment? ParentAppointment { get; set; }
-
-    [InverseProperty("ParentAppointment")]
-    public virtual ICollection<Appointment> InverseParentAppointments { get; set; } = new List<Appointment>();
 }

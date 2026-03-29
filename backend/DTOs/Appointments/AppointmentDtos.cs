@@ -28,6 +28,8 @@ namespace backend.DTOs.Appointments
         
         [StringLength(50)]
         public string? Type { get; set; }  // Changed from int? to string
+
+        public int? TypeId { get; set; }
         
         [StringLength(50)]
         public string AppointmentStatus { get; set; } = "Scheduled";  // Default to "Scheduled"
@@ -68,6 +70,8 @@ namespace backend.DTOs.Appointments
         
         [StringLength(50)]
         public string? Type { get; set; }  // Changed from int? to string
+
+        public int? TypeId { get; set; }
         
         [StringLength(50)]
         public string? AppointmentStatus { get; set; }
@@ -104,6 +108,8 @@ namespace backend.DTOs.Appointments
         public string? Notes { get; set; }
         
         public string? Type { get; set; }  // Changed from int? to string
+
+        public int? TypeId { get; set; }
         
         public string? AppointmentStatus { get; set; }
         
@@ -152,29 +158,8 @@ namespace backend.DTOs.Appointments
         public string? AssignedEmployeeName { get; set; }
         
         public string? Type { get; set; }  // Changed from int? to string
+
+        public int? TypeId { get; set; }
     }
     
-    /// <summary>
-    /// DTO for doctor/employee information
-    /// </summary>
-    public class DoctorDto
-    {
-        public int Id { get; set; }
-        
-        public string? FirstName { get; set; }
-        
-        public string? LastName { get; set; }
-        
-        public string? FullName { get; set; }
-        
-        public string? Position { get; set; }
-        
-        public string? Department { get; set; }
-        
-        public string? Email { get; set; }
-        
-        public string? Phone { get; set; }
-        
-        public bool IsActive { get; set; }
-    }
 }

@@ -51,7 +51,7 @@ export function OPDRx() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2 space-y-4">
           <div className="bg-white rounded-lg shadow-md p-4 flex flex-wrap items-center gap-3">
             <div className="flex-1 min-w-[240px] flex items-center gap-2 border px-3 py-2 rounded-lg">

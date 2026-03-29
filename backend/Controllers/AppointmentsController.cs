@@ -276,5 +276,13 @@ namespace backend.Controllers
                 return StatusCode(500, new { message = "An error occurred while checking availability" });
             }
         }
+        [HttpGet("get-labtests")]
+        public async Task<IActionResult> GetLabtests()
+        {
+            var result = await _appointmentsService.GetLabTestsAsync();
+            return Ok(result);
+        }
+
+
     }
 }
