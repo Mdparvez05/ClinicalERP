@@ -20,8 +20,6 @@ public partial class Appointment
     [Unicode(false)]
     public string? Type { get; set; }
 
-    public int? TypeId { get; set; }
-
     public int? ParentId { get; set; }
 
     [StringLength(255)]
@@ -59,6 +57,8 @@ public partial class Appointment
     [StringLength(255)]
     [Unicode(false)]
     public string? AssignedEmployeeName { get; set; }
+
+    public int? TypeId { get; set; }
 
     [ForeignKey("AssignedEmployeeId")]
     [InverseProperty("AppointmentAssignedEmployees")]

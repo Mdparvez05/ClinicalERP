@@ -1,9 +1,11 @@
 ﻿using backend.Data;
 using backend.DTOs.Appointments;
-using backend.Services.Interfaces;
 using backend.Models;
+using backend.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Org.BouncyCastle.Bcpg;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace backend.Services.Implementations
 {
@@ -16,6 +18,20 @@ namespace backend.Services.Implementations
         {
             _context = context;
             _logger = logger;
+        }
+
+        private async Task<int?> ResolveAppointmentTypeIdAsync(string? type, int? providedTypeId)
+        {
+            if (providedTypeId.HasValue)
+                return providedTypeId;
+
+            if (string.IsNullOrWhiteSpace(type))
+                return null;
+
+            var option = await _context.SystemOptions
+                .FirstOrDefaultAsync(x => x.Name == "AppointmentType" && x.Value == type);
+
+            return option?.Id;
         }
 
         public async Task<AppointmentDetailDto> CreateAppointmentAsync(CreateAppointmentDto appointmentDto)
@@ -34,6 +50,7 @@ namespace backend.Services.Implementations
                     PrescribedBy = appointmentDto.PrescribedBy,
                     ScheduledOn = appointmentDto.ScheduledOn,
                     Type = appointmentDto.Type,
+                    TypeId = 16,
                     AppointmentStatus = appointmentDto.AppointmentStatus,  // Direct string value
                     Name = appointmentDto.Name,
                     Description = appointmentDto.Description,
@@ -65,7 +82,7 @@ namespace backend.Services.Implementations
 
                 // Much simpler query - no complex joins needed
                 var appointment = await _context.Appointments
-                    .Where(a => a.Id == id)
+                    .Where(a => a.Id == id && a.TypeId == 16)
                     .Select(a => new AppointmentDetailDto
                     {
                         Id = a.Id,
@@ -75,6 +92,7 @@ namespace backend.Services.Implementations
                         ClosedOn = a.ClosedOn,
                         Notes = a.Notes,
                         Type = a.Type,
+                        TypeId = a.TypeId,
                         AppointmentStatus = a.AppointmentStatus,  // Direct field
                         ClientId = a.ClientId,
                         ClientName = a.ClientName,  // Direct denormalized field
@@ -149,7 +167,7 @@ namespace backend.Services.Implementations
 
                 if (dateTo.HasValue)
                     query = query.Where(a => a.ScheduledOn <= dateTo.Value);
-
+                query = query.Where(a => a.TypeId == 16);
                 var appointments = await query
                     .Select(a => new AppointmentDetailDto
                     {
@@ -160,6 +178,7 @@ namespace backend.Services.Implementations
                         ClosedOn = a.ClosedOn,
                         Notes = a.Notes,
                         Type = a.Type,
+                        TypeId = a.TypeId,
                         AppointmentStatus = a.AppointmentStatus,
                         ClientId = a.ClientId,
                         ClientName = a.ClientName,
@@ -213,7 +232,14 @@ namespace backend.Services.Implementations
                     appointment.ScheduledOn = appointmentDto.ScheduledOn.Value;
                 
                 if (!string.IsNullOrEmpty(appointmentDto.Type))
+                {
                     appointment.Type = appointmentDto.Type;
+                    appointment.TypeId = await ResolveAppointmentTypeIdAsync(appointmentDto.Type, appointmentDto.TypeId);
+                }
+                else if (appointmentDto.TypeId.HasValue)
+                {
+                    appointment.TypeId = appointmentDto.TypeId.Value;
+                }
                 
                 if (!string.IsNullOrEmpty(appointmentDto.AppointmentStatus))
                     appointment.AppointmentStatus = appointmentDto.AppointmentStatus;
@@ -352,6 +378,42 @@ namespace backend.Services.Implementations
             {
                 _logger.LogError(ex, "Error occurred while checking time slot availability");
                 throw;
+            }
+        }
+        public async Task<List<AppointmentDetailDto>> GetLabTestsAsync()
+        {
+            try
+            {
+                _logger.LogInformation("Fetching Lab testing Initiated");
+                var appointments = await _context.Appointments
+                    .Where(a => a.TypeId == 17 )
+                    .Select(a => new AppointmentDetailDto
+                    {
+                        Id = a.Id,
+                        Name = a.Name,
+                        Description = a.Description,
+                        ScheduledOn = a.ScheduledOn,
+                        ClosedOn = a.ClosedOn,
+                        Notes = a.Notes,
+                        Type = a.Type,
+                        TypeId = a.TypeId,
+                        AppointmentStatus = a.AppointmentStatus,
+                        ClientId = a.ClientId,
+                        ClientName = a.ClientName,
+                        AssignedEmployeeId = a.AssignedEmployeeId,
+                        AssignedEmployeeName = a.AssignedEmployeeName,
+                        PrescribedBy = a.PrescribedBy,
+                        ParentId = a.ParentId
+                    })
+                    .OrderBy(a => a.ScheduledOn)
+                    .ToListAsync();
+                return appointments;
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while fetching lab tests");
+                throw;
+
             }
         }
     }

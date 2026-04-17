@@ -1,0 +1,1019 @@
+2026-04-17 18:07:06.124 +05:30 [INF] Now listening on: https://localhost:7101
+2026-04-17 18:07:06.250 +05:30 [INF] Now listening on: http://localhost:5189
+2026-04-17 18:07:06.435 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-17 18:07:06.476 +05:30 [INF] Hosting environment: Development
+2026-04-17 18:07:06.483 +05:30 [INF] Content root path: C:\Users\mdpar\Source\Repos\ClinicalERP\backend
+2026-04-17 18:07:12.697 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/index.html - null null
+2026-04-17 18:07:14.022 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/index.html - 200 null text/html;charset=utf-8 1419.7845ms
+2026-04-17 18:07:14.074 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - null null
+2026-04-17 18:07:14.074 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-17 18:07:14.347 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 272.9376ms
+2026-04-17 18:07:14.425 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - 200 null text/javascript; charset=UTF-8 350.7149ms
+2026-04-17 18:07:14.534 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - null null
+2026-04-17 18:07:14.717 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 183.8631ms
+2026-04-17 18:07:26.414 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/employees/list-employees - null null
+2026-04-17 18:07:26.445 +05:30 [INF] Executing endpoint 'backend.Controllers.EmployeeController.GetAllEmployeesAsync (backend)'
+2026-04-17 18:07:26.526 +05:30 [INF] Route matched with {action = "GetAllEmployees", controller = "Employee"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllEmployeesAsync() on controller backend.Controllers.EmployeeController (backend).
+2026-04-17 18:07:27.273 +05:30 [INF] GetEmployees endpoint called
+2026-04-17 18:07:27.309 +05:30 [INF] GetAllEmployeesAsync called
+2026-04-17 18:07:32.582 +05:30 [INF] Executed DbCommand (173ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[FirstName] + N' ' + [e].[LastName] AS [Name], [e].[Gender], [e].[Phone], [e].[Address], [e].[Email], [e].[Position], [e].[Department], [e].[DepartmentName], [e].[PositionName], [e].[HireDate], [e].[CreatedBy], [e].[UpdatedBy], [e].[CreatedOn], [e].[UpdatedOn], [e].[IsActive]
+FROM [Employees] AS [e]
+WHERE [e].[IsActive] = CAST(1 AS bit)
+ORDER BY [e].[FirstName] + N' ' + [e].[LastName]
+2026-04-17 18:07:32.715 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Employees.EmployeeDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:07:32.777 +05:30 [INF] Executed action backend.Controllers.EmployeeController.GetAllEmployeesAsync (backend) in 6239.7061ms
+2026-04-17 18:07:32.781 +05:30 [INF] Executed endpoint 'backend.Controllers.EmployeeController.GetAllEmployeesAsync (backend)'
+2026-04-17 18:07:32.805 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/employees/list-employees - 200 null application/json; charset=utf-8 6390.1326ms
+2026-04-17 18:08:04.797 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/dashboard/total-appointments - null null
+2026-04-17 18:08:04.797 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - null null
+2026-04-17 18:08:04.807 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/doctors/list-doctors - null null
+2026-04-17 18:08:04.871 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - null null
+2026-04-17 18:08:04.954 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:04.954 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:04.955 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:04.963 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:04.970 +05:30 [INF] Executing endpoint 'backend.Controllers.DoctorsController.GetAllDoctors (backend)'
+2026-04-17 18:08:04.970 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:08:04.970 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:08:04.970 +05:30 [INF] Executing endpoint 'backend.Controllers.DashboardController.GetTotalAppointments (backend)'
+2026-04-17 18:08:04.984 +05:30 [INF] Route matched with {action = "GetAllDoctors", controller = "Doctors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDoctors() on controller backend.Controllers.DoctorsController (backend).
+2026-04-17 18:08:04.984 +05:30 [INF] Route matched with {action = "GetAllAppointmentStatus", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAppointmentStatus() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:08:04.985 +05:30 [INF] Route matched with {action = "GetAppointmentTypes", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentTypes() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:08:04.987 +05:30 [INF] Route matched with {action = "GetTotalAppointments", controller = "Dashboard"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTotalAppointments() on controller backend.Controllers.DashboardController (backend).
+2026-04-17 18:08:04.993 +05:30 [INF] GetAllDoctors endpoint called
+2026-04-17 18:08:05.012 +05:30 [INF] Fetching all appointments with full details
+2026-04-17 18:08:05.013 +05:30 [INF] Fetching all doctors
+2026-04-17 18:08:05.107 +05:30 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[Name] = 'AppointmentStatus'
+2026-04-17 18:08:05.162 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[IsActive] = CAST(1 AS bit) AND [s].[Name] = 'AppointmentType'
+2026-04-17 18:08:05.176 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:08:05.183 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:08:05.197 +05:30 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[FirstName] + N' ' + [e].[LastName] AS [Name], [e].[Gender], [e].[Phone], [e].[Address], [e].[Email], [e].[Position], [e].[Department], NULL AS [DepartmentName], [e].[HireDate], [e].[CreatedBy], [e].[UpdatedBy], [e].[CreatedOn], [e].[UpdatedOn], [e].[IsActive]
+FROM [Employees] AS [e]
+WHERE [e].[IsActive] = CAST(1 AS bit) AND [e].[Position] = 4
+ORDER BY [e].[FirstName] + N' ' + [e].[LastName]
+2026-04-17 18:08:05.208 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAppointmentTypes (backend) in 207.3897ms
+2026-04-17 18:08:05.208 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAllAppointmentStatus (backend) in 214.6496ms
+2026-04-17 18:08:05.212 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[ClientId], [a].[ClientName], [a].[ScheduledOn], [a].[AssignedEmployeeName] AS [EmployeeName], [a].[AppointmentStatus], [a].[Type] AS [AppointmentType], [a].[AssignedEmployeeId], [a].[Name], [a].[Description], [a].[Notes]
+FROM [Appointments] AS [a]
+WHERE [a].[TypeId] = 16
+ORDER BY [a].[ScheduledOn]
+2026-04-17 18:08:05.214 +05:30 [INF] Successfully retrieved 3 doctors
+2026-04-17 18:08:05.217 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:08:05.223 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:08:05.230 +05:30 [INF] Successfully retrieved 3 doctors
+2026-04-17 18:08:05.230 +05:30 [INF] Successfully retrieved 8 total appointments
+2026-04-17 18:08:05.235 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - 200 null application/json; charset=utf-8 388.4775ms
+2026-04-17 18:08:05.237 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - 200 null application/json; charset=utf-8 440.385ms
+2026-04-17 18:08:05.240 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Employees.EmployeeDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:08:05.242 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Dashboard.AppointmentDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:08:05.267 +05:30 [INF] Executed action backend.Controllers.DoctorsController.GetAllDoctors (backend) in 278.7877ms
+2026-04-17 18:08:05.277 +05:30 [INF] Executed endpoint 'backend.Controllers.DoctorsController.GetAllDoctors (backend)'
+2026-04-17 18:08:05.285 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/doctors/list-doctors - 200 null application/json; charset=utf-8 473.6033ms
+2026-04-17 18:08:05.309 +05:30 [INF] Executed action backend.Controllers.DashboardController.GetTotalAppointments (backend) in 304.2874ms
+2026-04-17 18:08:05.323 +05:30 [INF] Executed endpoint 'backend.Controllers.DashboardController.GetTotalAppointments (backend)'
+2026-04-17 18:08:05.327 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/dashboard/total-appointments - 200 null application/json; charset=utf-8 530.404ms
+2026-04-17 18:08:06.954 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient - null null
+2026-04-17 18:08:06.961 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:06.963 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:08:06.973 +05:30 [INF] Route matched with {action = "GetPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientListDto]]] GetPatients() on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:08:07.117 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[FirstName] + ' ' + [c].[LastName] AS [FullName], [c].[Gender], [c].[DateOfBirth], [c].[Email], [c].[Phone], [c].[LastAppointmentDate], [c].[IsActive]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:08:07.128 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientListDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:08:07.139 +05:30 [INF] Executed action backend.Controllers.PatientController.GetPatients (backend) in 161.6339ms
+2026-04-17 18:08:07.150 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:08:07.154 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient - 200 null application/json; charset=utf-8 200.3717ms
+2026-04-17 18:08:08.323 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - null null
+2026-04-17 18:08:08.325 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - null null
+2026-04-17 18:08:08.324 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/doctors/list-doctors - null null
+2026-04-17 18:08:08.335 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/appointments/get-labtests - null null
+2026-04-17 18:08:08.343 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:08.353 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:08.360 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:08.370 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:08.372 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:08:08.374 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:08:08.376 +05:30 [INF] Executing endpoint 'backend.Controllers.DoctorsController.GetAllDoctors (backend)'
+2026-04-17 18:08:08.378 +05:30 [INF] Executing endpoint 'backend.Controllers.AppointmentsController.GetLabtests (backend)'
+2026-04-17 18:08:08.384 +05:30 [INF] Route matched with {action = "GetAllAppointmentStatus", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAppointmentStatus() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:08:08.387 +05:30 [INF] Route matched with {action = "GetAppointmentTypes", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentTypes() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:08:08.390 +05:30 [INF] Route matched with {action = "GetAllDoctors", controller = "Doctors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDoctors() on controller backend.Controllers.DoctorsController (backend).
+2026-04-17 18:08:08.404 +05:30 [INF] Route matched with {action = "GetLabtests", controller = "Appointments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLabtests() on controller backend.Controllers.AppointmentsController (backend).
+2026-04-17 18:08:08.478 +05:30 [INF] Executed DbCommand (56ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[IsActive] = CAST(1 AS bit) AND [s].[Name] = 'AppointmentType'
+2026-04-17 18:08:08.411 +05:30 [INF] GetAllDoctors endpoint called
+2026-04-17 18:08:08.478 +05:30 [INF] Executed DbCommand (61ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[Name] = 'AppointmentStatus'
+2026-04-17 18:08:08.490 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:08:08.491 +05:30 [INF] Fetching all doctors
+2026-04-17 18:08:08.493 +05:30 [INF] Fetching Lab testing Initiated
+2026-04-17 18:08:08.496 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:08:08.504 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAppointmentTypes (backend) in 97.1006ms
+2026-04-17 18:08:08.554 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAllAppointmentStatus (backend) in 153.885ms
+2026-04-17 18:08:08.610 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:08:08.551 +05:30 [INF] Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[FirstName] + N' ' + [e].[LastName] AS [Name], [e].[Gender], [e].[Phone], [e].[Address], [e].[Email], [e].[Position], [e].[Department], NULL AS [DepartmentName], [e].[HireDate], [e].[CreatedBy], [e].[UpdatedBy], [e].[CreatedOn], [e].[UpdatedOn], [e].[IsActive]
+FROM [Employees] AS [e]
+WHERE [e].[IsActive] = CAST(1 AS bit) AND [e].[Position] = 4
+ORDER BY [e].[FirstName] + N' ' + [e].[LastName]
+2026-04-17 18:08:08.627 +05:30 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Name], [a].[Description], [a].[ScheduledOn], [a].[ClosedOn], [a].[Notes], [a].[Type], [a].[TypeId], [a].[AppointmentStatus], [a].[ClientId], [a].[ClientName], [a].[AssignedEmployeeId], [a].[AssignedEmployeeName], [a].[PrescribedBy], [a].[ParentId]
+FROM [Appointments] AS [a]
+WHERE [a].[TypeId] = 17
+ORDER BY [a].[ScheduledOn]
+2026-04-17 18:08:08.629 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:08:08.635 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - 200 null application/json; charset=utf-8 310.2131ms
+2026-04-17 18:08:08.649 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - 200 null application/json; charset=utf-8 326.357ms
+2026-04-17 18:08:08.641 +05:30 [INF] Successfully retrieved 3 doctors
+2026-04-17 18:08:08.654 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Appointments.AppointmentDetailDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:08:08.673 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - null null
+2026-04-17 18:08:08.673 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - null null
+2026-04-17 18:08:08.704 +05:30 [INF] Successfully retrieved 3 doctors
+2026-04-17 18:08:08.712 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:08.719 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:08:08.721 +05:30 [INF] Executed action backend.Controllers.AppointmentsController.GetLabtests (backend) in 241.6649ms
+2026-04-17 18:08:08.730 +05:30 [INF] Executed endpoint 'backend.Controllers.AppointmentsController.GetLabtests (backend)'
+2026-04-17 18:08:08.723 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:08:08.725 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:08:08.721 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Employees.EmployeeDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:08:08.734 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/appointments/get-labtests - 200 null application/json; charset=utf-8 399.2635ms
+2026-04-17 18:08:08.739 +05:30 [INF] Route matched with {action = "GetAllAppointmentStatus", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAppointmentStatus() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:08:08.742 +05:30 [INF] Route matched with {action = "GetAppointmentTypes", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentTypes() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:08:08.746 +05:30 [INF] Executed action backend.Controllers.DoctorsController.GetAllDoctors (backend) in 334.9096ms
+2026-04-17 18:08:08.788 +05:30 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[Name] = 'AppointmentStatus'
+2026-04-17 18:08:08.794 +05:30 [INF] Executed endpoint 'backend.Controllers.DoctorsController.GetAllDoctors (backend)'
+2026-04-17 18:08:08.801 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[IsActive] = CAST(1 AS bit) AND [s].[Name] = 'AppointmentType'
+2026-04-17 18:08:08.808 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:08:08.810 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/doctors/list-doctors - 200 null application/json; charset=utf-8 486.7713ms
+2026-04-17 18:08:08.818 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:08:08.822 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAllAppointmentStatus (backend) in 60.7002ms
+2026-04-17 18:08:08.913 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:08:08.922 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - 200 null application/json; charset=utf-8 249.3951ms
+2026-04-17 18:08:08.923 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAppointmentTypes (backend) in 133.3262ms
+2026-04-17 18:08:08.940 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:08:08.943 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - 499 null application/json; charset=utf-8 276.0647ms
+2026-04-17 18:12:47.883 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient - null null
+2026-04-17 18:12:48.014 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:12:48.059 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:12:48.208 +05:30 [INF] Route matched with {action = "GetPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientListDto]]] GetPatients() on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:12:48.270 +05:30 [INF] Executed DbCommand (41ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[FirstName] + ' ' + [c].[LastName] AS [FullName], [c].[Gender], [c].[DateOfBirth], [c].[Email], [c].[Phone], [c].[LastAppointmentDate], [c].[IsActive]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:12:48.288 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientListDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:12:48.292 +05:30 [INF] Executed action backend.Controllers.PatientController.GetPatients (backend) in 72.1656ms
+2026-04-17 18:12:48.376 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:12:48.415 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient - 200 null application/json; charset=utf-8 532.2607ms
+2026-04-17 18:13:51.315 +05:30 [INF] Request starting HTTP/2 OPTIONS https://localhost:7101/api/Patient - null null
+2026-04-17 18:13:51.424 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:13:51.429 +05:30 [INF] Request finished HTTP/2 OPTIONS https://localhost:7101/api/Patient - 204 null null 114.0071ms
+2026-04-17 18:13:51.507 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7101/api/Patient - application/json 286
+2026-04-17 18:13:51.569 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:13:51.716 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.CreatePatient (backend)'
+2026-04-17 18:13:51.759 +05:30 [INF] Route matched with {action = "CreatePatient", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreatePatient(backend.DTOs.Patients.CreatePatientDto) on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:13:51.942 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-04-17 18:13:52.008 +05:30 [INF] Executed action backend.Controllers.PatientController.CreatePatient (backend) in 241.7791ms
+2026-04-17 18:13:52.012 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.CreatePatient (backend)'
+2026-04-17 18:13:52.015 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7101/api/Patient - 400 null application/problem+json; charset=utf-8 514.5866ms
+2026-04-17 18:17:54.865 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient - null null
+2026-04-17 18:17:55.195 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:17:55.431 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:17:55.540 +05:30 [INF] Route matched with {action = "GetPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientListDto]]] GetPatients() on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:17:55.895 +05:30 [INF] Executed DbCommand (48ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[FirstName] + ' ' + [c].[LastName] AS [FullName], [c].[Gender], [c].[DateOfBirth], [c].[Email], [c].[Phone], [c].[LastAppointmentDate], [c].[IsActive]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:17:56.131 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientListDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:17:56.181 +05:30 [INF] Executed action backend.Controllers.PatientController.GetPatients (backend) in 624.5108ms
+2026-04-17 18:17:56.198 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:17:56.200 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient - 200 null application/json; charset=utf-8 1336.1829ms
+2026-04-17 18:21:21.831 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient - null null
+2026-04-17 18:21:21.933 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:21:21.937 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:21:21.972 +05:30 [INF] Route matched with {action = "GetPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientListDto]]] GetPatients() on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:21:22.021 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[FirstName] + ' ' + [c].[LastName] AS [FullName], [c].[Gender], [c].[DateOfBirth], [c].[Email], [c].[Phone], [c].[LastAppointmentDate], [c].[IsActive]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:21:22.065 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientListDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:21:22.071 +05:30 [INF] Executed action backend.Controllers.PatientController.GetPatients (backend) in 83.6638ms
+2026-04-17 18:21:22.135 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:21:22.141 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient - 200 null application/json; charset=utf-8 310.5664ms
+2026-04-17 18:21:39.967 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient - null null
+2026-04-17 18:21:40.064 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:21:40.080 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:21:40.082 +05:30 [INF] Route matched with {action = "GetPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientListDto]]] GetPatients() on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:21:40.114 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[FirstName] + ' ' + [c].[LastName] AS [FullName], [c].[Gender], [c].[DateOfBirth], [c].[Email], [c].[Phone], [c].[LastAppointmentDate], [c].[IsActive]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:21:40.147 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientListDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:21:40.153 +05:30 [INF] Executed action backend.Controllers.PatientController.GetPatients (backend) in 58.154ms
+2026-04-17 18:21:40.161 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:21:40.164 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient - 200 null application/json; charset=utf-8 196.4084ms
+2026-04-17 18:27:04.686 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient - null null
+2026-04-17 18:27:04.970 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:27:04.987 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:27:04.998 +05:30 [INF] Route matched with {action = "GetPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientListDto]]] GetPatients() on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:27:05.052 +05:30 [INF] Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[FirstName] + ' ' + [c].[LastName] AS [FullName], [c].[Gender], [c].[DateOfBirth], [c].[Email], [c].[Phone], [c].[LastAppointmentDate], [c].[IsActive]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:27:05.086 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientListDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:27:05.089 +05:30 [INF] Executed action backend.Controllers.PatientController.GetPatients (backend) in 69.8728ms
+2026-04-17 18:27:05.168 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:27:05.179 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient - 200 null application/json; charset=utf-8 493.7175ms
+2026-04-17 18:35:23.191 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/rach - null null
+2026-04-17 18:35:23.229 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:35:23.378 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:35:23.409 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:35:23.606 +05:30 [INF] Executed DbCommand (57ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:35:23.618 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientSearchDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:35:23.623 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 207.0289ms
+2026-04-17 18:35:23.648 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:35:23.658 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/rach - 200 null application/json; charset=utf-8 470.7818ms
+2026-04-17 18:35:27.500 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/brow - null null
+2026-04-17 18:35:27.516 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:35:27.523 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:35:27.537 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:35:27.554 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:35:27.560 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientSearchDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:35:27.566 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 25.9544ms
+2026-04-17 18:35:27.571 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:35:27.574 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/brow - 200 null application/json; charset=utf-8 78.6457ms
+2026-04-17 18:36:40.848 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/tim - null null
+2026-04-17 18:36:40.866 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:40.868 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:36:40.872 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:36:40.895 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:36:40.901 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientSearchDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:36:40.906 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 29.4507ms
+2026-04-17 18:36:40.932 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:36:40.935 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/tim - 200 null application/json; charset=utf-8 86.8659ms
+2026-04-17 18:36:43.010 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/wats - null null
+2026-04-17 18:36:43.030 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:43.035 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:36:43.041 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:36:43.055 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:36:43.064 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientSearchDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:36:43.068 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 18.8424ms
+2026-04-17 18:36:43.075 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:36:43.078 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/wats - 200 null application/json; charset=utf-8 69.6518ms
+2026-04-17 18:36:51.093 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient - null null
+2026-04-17 18:36:51.113 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:51.115 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:36:51.119 +05:30 [INF] Route matched with {action = "GetPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientListDto]]] GetPatients() on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:36:51.139 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[FirstName] + ' ' + [c].[LastName] AS [FullName], [c].[Gender], [c].[DateOfBirth], [c].[Email], [c].[Phone], [c].[LastAppointmentDate], [c].[IsActive]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:36:51.147 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientListDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:36:51.153 +05:30 [INF] Executed action backend.Controllers.PatientController.GetPatients (backend) in 25.1548ms
+2026-04-17 18:36:51.162 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.GetPatients (backend)'
+2026-04-17 18:36:51.165 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient - 200 null application/json; charset=utf-8 72.0048ms
+2026-04-17 18:36:54.178 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/appointments/get-labtests - null null
+2026-04-17 18:36:54.178 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/doctors/list-doctors - null null
+2026-04-17 18:36:54.178 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - null null
+2026-04-17 18:36:54.178 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - null null
+2026-04-17 18:36:54.196 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:54.198 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:54.204 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:54.209 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:54.211 +05:30 [INF] Executing endpoint 'backend.Controllers.AppointmentsController.GetLabtests (backend)'
+2026-04-17 18:36:54.213 +05:30 [INF] Executing endpoint 'backend.Controllers.DoctorsController.GetAllDoctors (backend)'
+2026-04-17 18:36:54.215 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:36:54.218 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:36:54.224 +05:30 [INF] Route matched with {action = "GetLabtests", controller = "Appointments"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetLabtests() on controller backend.Controllers.AppointmentsController (backend).
+2026-04-17 18:36:54.227 +05:30 [INF] Route matched with {action = "GetAllDoctors", controller = "Doctors"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDoctors() on controller backend.Controllers.DoctorsController (backend).
+2026-04-17 18:36:54.230 +05:30 [INF] Route matched with {action = "GetAllAppointmentStatus", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAppointmentStatus() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:36:54.233 +05:30 [INF] Route matched with {action = "GetAppointmentTypes", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentTypes() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:36:54.262 +05:30 [INF] GetAllDoctors endpoint called
+2026-04-17 18:36:54.279 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[Name] = 'AppointmentStatus'
+2026-04-17 18:36:54.282 +05:30 [INF] Fetching all doctors
+2026-04-17 18:36:54.244 +05:30 [INF] Fetching Lab testing Initiated
+2026-04-17 18:36:54.330 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:36:54.382 +05:30 [INF] Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[FirstName] + N' ' + [e].[LastName] AS [Name], [e].[Gender], [e].[Phone], [e].[Address], [e].[Email], [e].[Position], [e].[Department], NULL AS [DepartmentName], [e].[HireDate], [e].[CreatedBy], [e].[UpdatedBy], [e].[CreatedOn], [e].[UpdatedOn], [e].[IsActive]
+FROM [Employees] AS [e]
+WHERE [e].[IsActive] = CAST(1 AS bit) AND [e].[Position] = 4
+ORDER BY [e].[FirstName] + N' ' + [e].[LastName]
+2026-04-17 18:36:54.383 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAllAppointmentStatus (backend) in 118.7852ms
+2026-04-17 18:36:54.396 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[IsActive] = CAST(1 AS bit) AND [s].[Name] = 'AppointmentType'
+2026-04-17 18:36:54.398 +05:30 [INF] Successfully retrieved 3 doctors
+2026-04-17 18:36:54.407 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:36:54.424 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:36:54.426 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Name], [a].[Description], [a].[ScheduledOn], [a].[ClosedOn], [a].[Notes], [a].[Type], [a].[TypeId], [a].[AppointmentStatus], [a].[ClientId], [a].[ClientName], [a].[AssignedEmployeeId], [a].[AssignedEmployeeName], [a].[PrescribedBy], [a].[ParentId]
+FROM [Appointments] AS [a]
+WHERE [a].[TypeId] = 17
+ORDER BY [a].[ScheduledOn]
+2026-04-17 18:36:54.426 +05:30 [INF] Successfully retrieved 3 doctors
+2026-04-17 18:36:54.429 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - 200 null application/json; charset=utf-8 250.8624ms
+2026-04-17 18:36:54.448 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAppointmentTypes (backend) in 170.438ms
+2026-04-17 18:36:54.463 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Appointments.AppointmentDetailDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:36:54.465 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Employees.EmployeeDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:36:54.480 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:36:54.485 +05:30 [INF] Executed action backend.Controllers.AppointmentsController.GetLabtests (backend) in 242.7933ms
+2026-04-17 18:36:54.496 +05:30 [INF] Executed action backend.Controllers.DoctorsController.GetAllDoctors (backend) in 236.2085ms
+2026-04-17 18:36:54.510 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - 200 null application/json; charset=utf-8 331.806ms
+2026-04-17 18:36:54.528 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - null null
+2026-04-17 18:36:54.529 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - null null
+2026-04-17 18:36:54.530 +05:30 [INF] Executed endpoint 'backend.Controllers.AppointmentsController.GetLabtests (backend)'
+2026-04-17 18:36:54.533 +05:30 [INF] Executed endpoint 'backend.Controllers.DoctorsController.GetAllDoctors (backend)'
+2026-04-17 18:36:54.551 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:54.557 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:54.560 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/appointments/get-labtests - 200 null application/json; charset=utf-8 382.0128ms
+2026-04-17 18:36:54.563 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/doctors/list-doctors - 200 null application/json; charset=utf-8 384.7178ms
+2026-04-17 18:36:54.566 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:36:54.569 +05:30 [INF] Executing endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:36:54.600 +05:30 [INF] Route matched with {action = "GetAllAppointmentStatus", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllAppointmentStatus() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:36:54.606 +05:30 [INF] Route matched with {action = "GetAppointmentTypes", controller = "Master"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAppointmentTypes() on controller backend.Controllers.MasterController (backend).
+2026-04-17 18:36:54.621 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[Name] = 'AppointmentStatus'
+2026-04-17 18:36:54.629 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [s].[Value]
+FROM [SystemOptions] AS [s]
+WHERE [s].[IsActive] = CAST(1 AS bit) AND [s].[Name] = 'AppointmentType'
+2026-04-17 18:36:54.633 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:36:54.639 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-04-17 18:36:54.642 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAllAppointmentStatus (backend) in 27.061ms
+2026-04-17 18:36:54.646 +05:30 [INF] Executed action backend.Controllers.MasterController.GetAppointmentTypes (backend) in 23.341ms
+2026-04-17 18:36:54.649 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAllAppointmentStatus (backend)'
+2026-04-17 18:36:54.654 +05:30 [INF] Executed endpoint 'backend.Controllers.MasterController.GetAppointmentTypes (backend)'
+2026-04-17 18:36:54.659 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointment-statuses - 200 null application/json; charset=utf-8 130.9216ms
+2026-04-17 18:36:54.662 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/master/appointmenttypes - 200 null application/json; charset=utf-8 133.5984ms
+2026-04-17 18:36:57.907 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/david - null null
+2026-04-17 18:36:57.915 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:36:57.922 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:36:57.926 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:36:57.945 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:36:57.966 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientSearchDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:36:57.976 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 44.6491ms
+2026-04-17 18:36:57.994 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:36:57.999 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/david - 200 null application/json; charset=utf-8 91.2784ms
+2026-04-17 18:37:08.528 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/dav - null null
+2026-04-17 18:37:08.550 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:37:08.553 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:37:08.559 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:37:08.575 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:37:08.580 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientSearchDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:37:08.587 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 23.5088ms
+2026-04-17 18:37:08.592 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:37:08.594 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/dav - 200 null application/json; charset=utf-8 66.625ms
+2026-04-17 18:37:14.579 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/dav - null null
+2026-04-17 18:37:14.610 +05:30 [INF] CORS policy execution successful.
+2026-04-17 18:37:14.659 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:37:14.663 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 18:37:14.712 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 18:37:14.727 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[backend.DTOs.Patients.PatientSearchDto, backend, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-04-17 18:37:14.741 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 54.6528ms
+2026-04-17 18:37:14.746 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 18:37:14.751 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/dav - 200 null application/json; charset=utf-8 171.7022ms
+2026-04-17 21:53:59.639 +05:30 [INF] Now listening on: https://localhost:7101
+2026-04-17 21:53:59.905 +05:30 [INF] Now listening on: http://localhost:5189
+2026-04-17 21:54:00.190 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/leo - null null
+2026-04-17 21:54:00.581 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-17 21:54:00.636 +05:30 [INF] CORS policy execution successful.
+2026-04-17 21:54:00.730 +05:30 [INF] Hosting environment: Development
+2026-04-17 21:54:00.764 +05:30 [INF] Content root path: C:\Users\mdpar\Source\Repos\ClinicalERP\backend
+2026-04-17 21:54:00.768 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:54:01.390 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/index.html - null null
+2026-04-17 21:54:01.394 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 21:54:02.374 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/index.html - 200 null text/html;charset=utf-8 981.1508ms
+2026-04-17 21:54:02.380 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - null null
+2026-04-17 21:54:02.380 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-17 21:54:02.652 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 271.9698ms
+2026-04-17 21:54:02.803 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - 200 null text/javascript; charset=UTF-8 422.5623ms
+2026-04-17 21:54:02.965 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - null null
+2026-04-17 21:54:03.371 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 405.8484ms
+2026-04-17 21:54:08.650 +05:30 [INF] Executed DbCommand (173ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 21:54:08.779 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 21:54:08.817 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 7363.364ms
+2026-04-17 21:54:08.957 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:54:09.006 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/leo - 200 null application/json; charset=utf-8 8847.8024ms
+2026-04-17 21:54:18.151 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/leo - null null
+2026-04-17 21:54:18.219 +05:30 [INF] CORS policy execution successful.
+2026-04-17 21:54:18.223 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:54:18.231 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 21:54:18.326 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 21:54:18.338 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 21:54:18.343 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 106.8939ms
+2026-04-17 21:54:18.351 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:54:18.355 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/leo - 200 null application/json; charset=utf-8 204.0526ms
+2026-04-17 21:55:30.371 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/leo - null null
+2026-04-17 21:55:30.399 +05:30 [INF] CORS policy execution successful.
+2026-04-17 21:55:30.404 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:55:30.409 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 21:55:30.533 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 21:55:30.541 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 21:55:30.546 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 124.1792ms
+2026-04-17 21:55:30.551 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:55:30.555 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/leo - 200 null application/json; charset=utf-8 184.9369ms
+2026-04-17 21:55:46.506 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/leo - null null
+2026-04-17 21:55:46.519 +05:30 [INF] CORS policy execution successful.
+2026-04-17 21:55:46.521 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:55:46.524 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 21:55:46.605 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 21:55:46.619 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 21:55:46.623 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 42.9759ms
+2026-04-17 21:55:46.645 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:55:46.649 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/leo - 200 null application/json; charset=utf-8 142.9747ms
+2026-04-17 21:56:37.340 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/rac - null null
+2026-04-17 21:56:37.362 +05:30 [INF] CORS policy execution successful.
+2026-04-17 21:56:37.366 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:56:37.369 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 21:56:37.384 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 21:56:37.392 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 21:56:37.396 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 20.6908ms
+2026-04-17 21:56:37.403 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:56:37.407 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/rac - 200 null application/json; charset=utf-8 68.0513ms
+2026-04-17 21:56:45.446 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/rac - null null
+2026-04-17 21:56:45.462 +05:30 [INF] CORS policy execution successful.
+2026-04-17 21:56:45.468 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:56:45.473 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 21:56:45.504 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 21:56:45.511 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 21:56:45.517 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 38.6842ms
+2026-04-17 21:56:45.526 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:56:45.529 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/rac - 200 null application/json; charset=utf-8 84.0298ms
+2026-04-17 21:58:13.668 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/dss - null null
+2026-04-17 21:58:13.675 +05:30 [INF] CORS policy execution successful.
+2026-04-17 21:58:13.677 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:58:13.682 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 21:58:13.733 +05:30 [INF] Executed DbCommand (43ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 21:58:13.741 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 21:58:13.744 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 57.1533ms
+2026-04-17 21:58:13.749 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:58:13.759 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/dss - 204 null null 91.6352ms
+2026-04-17 21:58:30.264 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/Mohammed - null null
+2026-04-17 21:58:30.270 +05:30 [INF] CORS policy execution successful.
+2026-04-17 21:58:30.272 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:58:30.280 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 21:58:30.293 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 21:58:30.302 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 21:58:30.306 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 21.6102ms
+2026-04-17 21:58:30.314 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:58:30.318 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/Mohammed - 200 null application/json; charset=utf-8 54.6155ms
+2026-04-17 21:59:56.107 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 21:59:56.542 +05:30 [INF] CORS policy execution successful.
+2026-04-17 21:59:56.568 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:59:56.575 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 21:59:56.839 +05:30 [INF] Executed DbCommand (98ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 21:59:56.926 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 21:59:57.117 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 379.9314ms
+2026-04-17 21:59:57.289 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 21:59:57.303 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 1212.0615ms
+2026-04-17 22:00:08.663 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 22:00:08.714 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:00:08.716 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:00:08.719 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:00:08.758 +05:30 [INF] Executed DbCommand (30ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:00:08.767 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:00:08.771 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 47.1637ms
+2026-04-17 22:00:08.787 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:00:08.790 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 127.8723ms
+2026-04-17 22:01:14.410 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/n - null null
+2026-04-17 22:01:14.423 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:01:14.448 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:01:14.450 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:01:14.504 +05:30 [INF] Executed DbCommand (42ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:01:14.542 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:01:14.582 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 123.9181ms
+2026-04-17 22:01:14.603 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:01:14.606 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/n - 200 null application/json; charset=utf-8 196.5663ms
+2026-04-17 22:01:20.890 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/q - null null
+2026-04-17 22:01:20.906 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:01:20.908 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:01:20.910 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:01:20.926 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:01:20.932 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:01:20.939 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 21.5944ms
+2026-04-17 22:01:20.942 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:01:20.946 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/q - 204 null null 56.1178ms
+2026-04-17 22:01:27.800 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/fwf - null null
+2026-04-17 22:01:27.824 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:01:27.837 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:01:27.839 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:01:27.852 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:01:27.858 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:01:27.863 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 18.656ms
+2026-04-17 22:01:27.868 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:01:27.871 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/fwf - 204 null null 71.726ms
+2026-04-17 22:02:30.867 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/m - null null
+2026-04-17 22:02:31.195 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:02:31.201 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:02:31.487 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:02:31.962 +05:30 [INF] Executed DbCommand (386ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:02:32.163 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:02:32.256 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 684.9561ms
+2026-04-17 22:02:32.425 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:02:32.428 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/m - 200 null application/json; charset=utf-8 1560.8467ms
+2026-04-17 22:02:39.298 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/m] - null null
+2026-04-17 22:02:39.309 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:02:39.326 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:02:39.330 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:02:39.371 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:02:39.381 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:02:39.390 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 49.1925ms
+2026-04-17 22:02:39.393 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:02:39.395 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/m] - 204 null null 103.662ms
+2026-04-17 22:02:41.557 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 22:02:41.592 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:02:41.594 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:02:41.600 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:02:41.619 +05:30 [INF] Executed DbCommand (11ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:02:41.625 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:02:41.628 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 22.5177ms
+2026-04-17 22:02:41.673 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:02:41.676 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 118.8972ms
+2026-04-17 22:03:32.808 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 22:03:32.818 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:03:32.823 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:03:32.828 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:03:32.862 +05:30 [INF] Executed DbCommand (27ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:03:32.868 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:03:32.884 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 52.1048ms
+2026-04-17 22:03:32.898 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:03:32.900 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 92.8854ms
+2026-04-17 22:04:39.805 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 22:04:39.820 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:04:39.822 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:04:39.830 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:04:39.872 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:04:39.916 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:04:39.967 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 128.9685ms
+2026-04-17 22:04:40.138 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:04:40.246 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 441.3146ms
+2026-04-17 22:06:06.181 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moham - null null
+2026-04-17 22:06:08.101 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:06:09.886 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:06:10.815 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:06:10.924 +05:30 [INF] Executed DbCommand (73ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:06:10.980 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:06:10.983 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 149.367ms
+2026-04-17 22:06:11.050 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:06:11.055 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moham - 200 null application/json; charset=utf-8 4874.5877ms
+2026-04-17 22:07:26.888 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moh - null null
+2026-04-17 22:07:27.827 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:07:27.829 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:07:27.836 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:07:27.901 +05:30 [INF] Executed DbCommand (57ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:07:27.908 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:07:27.911 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 69.762ms
+2026-04-17 22:07:27.925 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:07:28.007 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moh - 200 null application/json; charset=utf-8 1118.8051ms
+2026-04-17 22:07:38.824 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 22:07:38.877 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:07:38.888 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:07:38.923 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:07:38.939 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:07:38.971 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:07:38.974 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 44.2689ms
+2026-04-17 22:07:38.989 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:07:38.992 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 167.927ms
+2026-04-17 22:07:39.337 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moham - null null
+2026-04-17 22:07:39.343 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:07:39.345 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:07:39.349 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:07:39.360 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:07:39.372 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:07:39.381 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 27.1611ms
+2026-04-17 22:07:39.389 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:07:39.397 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moham - 200 null application/json; charset=utf-8 60.1454ms
+2026-04-17 22:09:46.605 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/mohamm - null null
+2026-04-17 22:09:47.426 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/mohammed - null null
+2026-04-17 22:09:47.893 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:09:47.943 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:09:47.973 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:09:47.977 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:09:47.991 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:09:48.011 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:09:48.690 +05:30 [INF] Executed DbCommand (317ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:09:49.365 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:09:49.993 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 1622.236ms
+2026-04-17 22:09:50.523 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:09:50.721 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/mohamm - 200 null application/json; charset=utf-8 4116.3467ms
+2026-04-17 22:09:50.961 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:09:50.980 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:09:50.989 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 1875.2189ms
+2026-04-17 22:09:51.003 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:09:51.008 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/mohammed - 200 null application/json; charset=utf-8 3581.1545ms
+2026-04-17 22:11:18.507 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/mohamme - null null
+2026-04-17 22:11:18.515 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:11:18.519 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:11:18.522 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:11:18.553 +05:30 [INF] Executed DbCommand (23ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:11:18.563 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:11:18.568 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 39.778ms
+2026-04-17 22:11:18.581 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:11:18.588 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/mohamme - 200 null application/json; charset=utf-8 80.9524ms
+2026-04-17 22:11:28.827 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/t - null null
+2026-04-17 22:11:28.846 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:11:28.852 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:11:28.855 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:11:28.876 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:11:28.886 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:11:28.891 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 29.9459ms
+2026-04-17 22:11:28.896 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:11:28.905 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/t - 200 null application/json; charset=utf-8 80.5021ms
+2026-04-17 22:12:16.092 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 22:12:16.109 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:12:16.115 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:12:16.120 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:12:16.171 +05:30 [INF] Executed DbCommand (42ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:12:16.192 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:12:16.201 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 76.889ms
+2026-04-17 22:12:16.207 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:12:16.219 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 127.971ms
+2026-04-17 22:13:11.929 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 22:13:11.951 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:13:11.954 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:13:11.957 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:13:11.975 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:13:11.981 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 22:13:11.985 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 22.4067ms
+2026-04-17 22:13:11.990 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:13:11.993 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 64.6695ms
+2026-04-17 22:15:08.512 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/dad - null null
+2026-04-17 22:15:08.523 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:15:08.525 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:15:08.528 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:15:08.546 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:15:08.552 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:15:08.561 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 29.1156ms
+2026-04-17 22:15:08.565 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:15:08.569 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/dad - 204 null null 56.9357ms
+2026-04-17 22:17:52.649 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/dd - null null
+2026-04-17 22:17:52.659 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:17:52.662 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:17:52.664 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:17:52.693 +05:30 [INF] Executed DbCommand (22ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:17:52.701 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:17:52.705 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 36.1026ms
+2026-04-17 22:17:52.709 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:17:52.714 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/dd - 204 null null 65.5699ms
+2026-04-17 22:18:25.178 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/dd - null null
+2026-04-17 22:18:25.186 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:18:25.188 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:18:25.193 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:18:25.208 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:18:25.218 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:18:25.222 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 20.8919ms
+2026-04-17 22:18:25.225 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:18:25.228 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/dd - 204 null null 51.0155ms
+2026-04-17 22:19:02.941 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/tim - null null
+2026-04-17 22:19:02.988 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:19:02.990 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:19:02.995 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:19:03.020 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:19:03.028 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:19:03.033 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 31.6901ms
+2026-04-17 22:19:03.036 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:19:03.039 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/tim - 204 null null 99.2685ms
+2026-04-17 22:38:59.957 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/tim - null null
+2026-04-17 22:38:59.975 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:38:59.976 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:38:59.978 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:39:00.112 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:39:00.119 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:39:00.122 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 66.6698ms
+2026-04-17 22:39:00.125 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:39:00.128 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/tim - 204 null null 170.6644ms
+2026-04-17 22:39:08.156 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/tim - null null
+2026-04-17 22:39:08.182 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:39:08.186 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:39:08.191 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:39:08.206 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:39:08.212 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:39:08.218 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 20.1094ms
+2026-04-17 22:39:08.223 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:39:08.226 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/tim - 204 null null 72.0384ms
+2026-04-17 22:40:30.367 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/tim - null null
+2026-04-17 22:40:30.425 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:40:30.427 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:40:30.430 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:40:30.453 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:40:30.460 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:40:30.463 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 19.892ms
+2026-04-17 22:40:30.466 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:40:30.469 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/tim - 204 null null 103.535ms
+2026-04-17 22:40:38.154 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/timf - null null
+2026-04-17 22:40:38.193 +05:30 [INF] CORS policy execution successful.
+2026-04-17 22:40:38.195 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:40:38.198 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 22:40:38.221 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 22:40:38.228 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 22:40:38.233 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 26.9691ms
+2026-04-17 22:40:38.244 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 22:40:38.247 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/timf - 204 null null 92.4881ms
+2026-04-17 23:02:34.705 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/rach - null null
+2026-04-17 23:02:34.717 +05:30 [INF] CORS policy execution successful.
+2026-04-17 23:02:34.719 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:02:34.721 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 23:02:34.776 +05:30 [INF] Executed DbCommand (21ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 23:02:34.782 +05:30 [INF] Executing OkObjectResult, writing value of type 'null'.
+2026-04-17 23:02:34.786 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 56.5551ms
+2026-04-17 23:02:34.789 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:02:34.796 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/rach - 204 null null 91.0374ms
+2026-04-17 23:02:36.855 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 23:02:36.878 +05:30 [INF] CORS policy execution successful.
+2026-04-17 23:02:36.880 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:02:36.883 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 23:02:36.896 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 23:02:36.903 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 23:02:36.909 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 19.8749ms
+2026-04-17 23:02:36.913 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:02:36.916 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 62.2706ms
+2026-04-17 23:04:53.960 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/mo - null null
+2026-04-17 23:04:53.978 +05:30 [INF] CORS policy execution successful.
+2026-04-17 23:04:53.981 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:04:53.985 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 23:04:54.011 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 23:04:54.023 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 23:04:54.030 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 40.5208ms
+2026-04-17 23:04:54.046 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:04:54.050 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/mo - 200 null application/json; charset=utf-8 90.433ms
+2026-04-17 23:09:24.392 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moh - null null
+2026-04-17 23:09:24.461 +05:30 [INF] CORS policy execution successful.
+2026-04-17 23:09:24.465 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:09:24.469 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 23:09:24.760 +05:30 [INF] Executed DbCommand (30ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 23:09:24.777 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 23:09:24.801 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 135.5312ms
+2026-04-17 23:09:24.817 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:09:24.821 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moh - 200 null application/json; charset=utf-8 428.9467ms
+2026-04-17 23:10:26.273 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 23:10:26.292 +05:30 [INF] CORS policy execution successful.
+2026-04-17 23:10:26.294 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:10:26.320 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 23:10:26.342 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 23:10:26.351 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 23:10:26.355 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 27.3233ms
+2026-04-17 23:10:26.373 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:10:26.377 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 104.2575ms
+2026-04-17 23:12:03.011 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/r - null null
+2026-04-17 23:12:03.023 +05:30 [INF] CORS policy execution successful.
+2026-04-17 23:12:03.027 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:12:03.033 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 23:12:03.082 +05:30 [INF] Executed DbCommand (39ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 23:12:03.125 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 23:12:03.128 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 88.1771ms
+2026-04-17 23:12:03.153 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:12:03.156 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/r - 200 null application/json; charset=utf-8 144.8294ms
+2026-04-17 23:12:55.726 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/mo - null null
+2026-04-17 23:12:55.759 +05:30 [INF] CORS policy execution successful.
+2026-04-17 23:12:55.761 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:12:55.764 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 23:12:55.790 +05:30 [INF] Executed DbCommand (19ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 23:12:55.796 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 23:12:55.801 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 32.9182ms
+2026-04-17 23:12:55.813 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:12:55.820 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/mo - 200 null application/json; charset=utf-8 94.6765ms
+2026-04-17 23:37:26.489 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/api/Patient/search/moha - null null
+2026-04-17 23:37:26.514 +05:30 [INF] CORS policy execution successful.
+2026-04-17 23:37:26.516 +05:30 [INF] Executing endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:37:26.520 +05:30 [INF] Route matched with {action = "SearchPatients", controller = "Patient"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[backend.DTOs.Patients.PatientSearchDto]]] SearchPatients(System.String) on controller backend.Controllers.PatientController (backend).
+2026-04-17 23:37:26.566 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[@__Format_1='?' (Size = 50) (DbType = AnsiString), @__Format_1_1='?' (Size = 100) (DbType = AnsiString)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [c].[Id], [c].[FirstName], [c].[LastName], [c].[Email], [c].[Phone], [c].[MedicalRecordNumber]
+FROM [Clients] AS [c]
+WHERE [c].[IsActive] = CAST(1 AS bit) AND ([c].[FirstName] LIKE @__Format_1 OR [c].[LastName] LIKE @__Format_1 OR [c].[Email] LIKE @__Format_1_1 OR [c].[MedicalRecordNumber] LIKE @__Format_1)
+ORDER BY [c].[LastName], [c].[FirstName]
+2026-04-17 23:37:26.574 +05:30 [INF] Executing OkObjectResult, writing value of type 'backend.DTOs.Patients.PatientSearchDto'.
+2026-04-17 23:37:26.577 +05:30 [INF] Executed action backend.Controllers.PatientController.SearchPatients (backend) in 51.3789ms
+2026-04-17 23:37:26.581 +05:30 [INF] Executed endpoint 'backend.Controllers.PatientController.SearchPatients (backend)'
+2026-04-17 23:37:26.583 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/api/Patient/search/moha - 200 null application/json; charset=utf-8 98.6862ms

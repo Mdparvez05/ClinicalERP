@@ -46,6 +46,7 @@ namespace backend.DTOs.Patients
         public string LastName { get; set; } = string.Empty;
         public string? Email { get; set; }
         public string? MedicalRecordNumber { get; set; }
+        public string Phone { get; internal set; }
     }
 
     public class CreatePatientDto

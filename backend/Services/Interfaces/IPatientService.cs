@@ -6,7 +6,7 @@ namespace backend.Services.Interfaces
     {
         Task<List<PatientListDto>> GetPatientsAsync();
         Task<PatientDetailDto?> GetPatientByIdAsync(int id);
-        Task<List<PatientSearchDto>> SearchPatientsAsync(string term);
+        Task<PatientSearchDto?> SearchPatientsAsync(string term);
         Task<PatientDetailDto> CreatePatientAsync(CreatePatientDto patientDto);
         Task<PatientDetailDto> UpdatePatientAsync(UpdatePatientDto patientDto);
         Task<bool> DeletePatientAsync(int id);

@@ -66,5 +66,12 @@ namespace backend.Services.Interfaces
         /// <param name="scheduledTime">Requested appointment time</param>
         /// <returns>True if slot is available</returns>
         Task<bool> IsTimeSlotAvailableAsync(int employeeId, DateTime scheduledTime);
+
+        /// <summary>
+        /// Gets all lab tests
+        /// </summary>
+        /// <returns>List of lab tests</returns>
+        Task<List<AppointmentDetailDto>> GetLabTestsAsync();
+        
     }
 }

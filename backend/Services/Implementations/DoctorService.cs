@@ -27,7 +27,7 @@ namespace backend.Services.Implementations
                 _logger.LogInformation("Fetching all doctors");
 
                 var result = await _context.Employees
-                    .Where(a => a.IsActive && a.Position == 1) // Filter first, then select
+                    .Where(a => a.IsActive && a.Position == 4) // Filter first, then select
                     .Select(a => new EmployeeDto
                     {
                         Id =a.Id,
@@ -65,7 +65,7 @@ namespace backend.Services.Implementations
             {
                 _logger.LogInformation("Fetching doctor with ID: {DoctorId}", id);
                 var doctor = await _context.Employees
-                    .Where(a => a.IsActive && a.Position == 1 && a.Id == id)
+                    .Where(a => a.IsActive && a.Position == 4 && a.Id == id)
                     .Select(a => new EmployeeDto
                     {
                         Name = a.FirstName + " " + a.LastName,
@@ -86,7 +86,7 @@ namespace backend.Services.Implementations
             {
                 _logger.LogInformation("Updating doctor with ID: {DoctorId}", id);
                 var doctor = await _context.Employees.FindAsync(id);
-                if (doctor == null || !doctor.IsActive || doctor.Position != 1)
+                if (doctor == null || !doctor.IsActive || doctor.Position != 4)
                 {
                     _logger.LogWarning("Doctor with ID: {DoctorId} not found or is not active", id);
                     return null;

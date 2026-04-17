@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Plus, Search, Filter, CalendarDays, Clock3, Printer, Eye, X, ChevronDown } from 'lucide-react';
+import { Plus, Search, Filter, CalendarDays, Clock3, Eye, X, ChevronDown } from 'lucide-react';
 
 type AppointmentDto = {
   id: number;
@@ -475,12 +475,7 @@ export function Appointments() {
                       >
                         <Eye size={16} /> View
                       </button>
-                      <button
-                        className="text-gray-600 hover:text-gray-800 flex items-center gap-1"
-                        onClick={() => navigate(`/appointments/${appt.id}/print`)}
-                      >
-                        <Printer size={16} /> Print
-                      </button>
+                       
                     </div>
                   </td>
                 </tr>

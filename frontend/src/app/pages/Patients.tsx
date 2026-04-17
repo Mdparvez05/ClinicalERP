@@ -238,10 +238,10 @@ export function Patients() {
       return;
     }
 
-    if (!formState.medicalRecordNumber.trim()) {
-      setSubmitError('Medical record number is required.');
-      return;
-    }
+    // if (!formState.medicalRecordNumber.trim()) {
+    //   setSubmitError('Medical record number is required.');
+    //   return;
+    // }
 
     try {
       setIsSubmitting(true);

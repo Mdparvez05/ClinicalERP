@@ -34,7 +34,7 @@ namespace backend.Services.Implementations
                 var appointments = await _context.Appointments
                     .Where(a => a.ScheduledOn.HasValue
                                 && a.ScheduledOn.Value >= today
-                                && a.ScheduledOn.Value < tomorrow)
+                                && a.ScheduledOn.Value < tomorrow && a.TypeId == 16)
                     .Select(a => new AppointmentDto
                     {
                         Id = a.Id,
@@ -92,7 +92,7 @@ namespace backend.Services.Implementations
                 
                 // Now using string comparison for both Type and Status
                 var count = await _context.Appointments
-                    .Where(a => a.Type == "Lab Test" && a.AppointmentStatus == "Scheduled")  // Both string comparisons
+                    .Where(a => a.TypeId == 17 && a.AppointmentStatus == "Scheduled")  // Both string comparisons
                     .CountAsync();
                     
                 _logger.LogInformation("Successfully retrieved pending lab tests count: {Count}", count);
@@ -110,9 +110,10 @@ namespace backend.Services.Implementations
             try
             {
                 _logger.LogInformation("Fetching all appointments with full details");
-                
+
                 // Much simpler now - no complex joins needed!
                 var totalAppointments = await _context.Appointments
+                    .Where(a => a.TypeId == 16)
                     .Select(a => new AppointmentDto
                     {
                         Id = a.Id,

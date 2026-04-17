@@ -1,0 +1,70 @@
+2026-04-18 00:59:55.357 +05:30 [INF] Now listening on: https://localhost:7101
+2026-04-18 00:59:55.529 +05:30 [INF] Now listening on: http://localhost:5189
+2026-04-18 00:59:56.282 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-18 00:59:56.312 +05:30 [INF] Hosting environment: Development
+2026-04-18 00:59:56.387 +05:30 [INF] Content root path: C:\Users\mdpar\Source\Repos\ClinicalERP\backend
+2026-04-18 00:59:58.131 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/index.html - null null
+2026-04-18 00:59:59.235 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/index.html - 200 null text/html;charset=utf-8 1155.2597ms
+2026-04-18 00:59:59.264 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - null null
+2026-04-18 00:59:59.270 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-18 00:59:59.378 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 107.4124ms
+2026-04-18 00:59:59.468 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - 200 null text/javascript; charset=UTF-8 204.5772ms
+2026-04-18 00:59:59.586 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - null null
+2026-04-18 00:59:59.800 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 213.6733ms
+2026-04-18 01:14:56.649 +05:30 [INF] Now listening on: https://localhost:7101
+2026-04-18 01:14:56.750 +05:30 [INF] Now listening on: http://localhost:5189
+2026-04-18 01:14:57.063 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-18 01:14:57.103 +05:30 [INF] Hosting environment: Development
+2026-04-18 01:14:57.105 +05:30 [INF] Content root path: C:\Users\mdpar\Source\Repos\ClinicalERP\backend
+2026-04-18 01:14:57.888 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/index.html - null null
+2026-04-18 01:14:59.109 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/index.html - 200 null text/html;charset=utf-8 1249.3524ms
+2026-04-18 01:14:59.189 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - null null
+2026-04-18 01:14:59.190 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-18 01:14:59.253 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 62.5343ms
+2026-04-18 01:14:59.882 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - 200 null text/javascript; charset=UTF-8 692.3917ms
+2026-04-18 01:14:59.971 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - null null
+2026-04-18 01:15:00.120 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 150.0174ms
+2026-04-18 01:16:38.365 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/index.html - null null
+2026-04-18 01:16:38.411 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/index.html - 200 null text/html;charset=utf-8 45.5983ms
+2026-04-18 01:16:38.498 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-18 01:16:38.498 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - null null
+2026-04-18 01:16:38.520 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 21.7779ms
+2026-04-18 01:16:38.997 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - 200 null text/javascript; charset=UTF-8 499.0471ms
+2026-04-18 01:16:39.156 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - null null
+2026-04-18 01:16:39.236 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 80.0778ms
+2026-04-18 01:17:47.838 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7101/api/Prescription - application/json 449
+2026-04-18 01:17:47.909 +05:30 [INF] CORS policy execution successful.
+2026-04-18 01:17:47.924 +05:30 [INF] Executing endpoint 'backend.Controllers.PrescriptionController.Create (backend)'
+2026-04-18 01:17:47.987 +05:30 [INF] Route matched with {action = "Create", controller = "Prescription"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Int32]] Create(backend.DTOs.Prescriptions.PrescriptionDto) on controller backend.Controllers.PrescriptionController (backend).
+2026-04-18 01:17:48.009 +05:30 [INF] Executed action backend.Controllers.PrescriptionController.Create (backend) in 12.1131ms
+2026-04-18 01:17:48.018 +05:30 [INF] Executed endpoint 'backend.Controllers.PrescriptionController.Create (backend)'
+2026-04-18 01:17:48.155 +05:30 [ERR] Unhandled Exception
+System.InvalidOperationException: Unable to resolve service for type 'backend.Services.Implementations.PrescriptionService' while attempting to activate 'backend.Controllers.PrescriptionController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.ThrowHelperUnableToResolveService(Type type, Type requiredBy)
+   at lambda_method10(Closure, IServiceProvider, Object[])
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at backend.Middleware.ExceptionMiddleware.Invoke(HttpContext context)
+2026-04-18 01:17:48.226 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7101/api/Prescription - 200 null null 388.5921ms
+2026-04-18 01:19:20.976 +05:30 [INF] Now listening on: https://localhost:7101
+2026-04-18 01:19:21.095 +05:30 [INF] Now listening on: http://localhost:5189
+2026-04-18 01:19:21.443 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-04-18 01:19:21.449 +05:30 [INF] Hosting environment: Development
+2026-04-18 01:19:21.451 +05:30 [INF] Content root path: C:\Users\mdpar\Source\Repos\ClinicalERP\backend
+2026-04-18 01:19:22.819 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/index.html - null null
+2026-04-18 01:19:24.497 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - null null
+2026-04-18 01:19:24.503 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - null null
+2026-04-18 01:19:24.517 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/index.html - 200 null text/html;charset=utf-8 1719.3714ms
+2026-04-18 01:19:24.537 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - 200 16499 application/javascript; charset=utf-8 40.1155ms
+2026-04-18 01:19:24.646 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - 200 null text/javascript; charset=UTF-8 148.1812ms
+2026-04-18 01:19:25.009 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - null null
+2026-04-18 01:19:25.244 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 235.8211ms

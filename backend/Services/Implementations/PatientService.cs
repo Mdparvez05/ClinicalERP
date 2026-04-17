@@ -36,7 +36,7 @@ namespace backend.Services.Implementations
                         Email = c.Email,
                         Phone = c.Phone,
                         LastAppointmentDate = c.LastAppointmentDate,
-                        MedicalRecordNumber = c.MedicalRecordNumber,
+                        //MedicalRecordNumber = c.MedicalRecordNumber,
                         IsActive = c.IsActive
                     })
                     .ToListAsync();
@@ -86,7 +86,7 @@ namespace backend.Services.Implementations
             }
         }
 
-        public async Task<List<PatientSearchDto>> SearchPatientsAsync(string term)
+        public async Task<PatientSearchDto?> SearchPatientsAsync(string term)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace backend.Services.Implementations
 
                 if (string.IsNullOrEmpty(term))
                 {
-                    return new List<PatientSearchDto>();
+                    return new PatientSearchDto();
                 }
 
                 return await _context.Clients
@@ -111,9 +111,10 @@ namespace backend.Services.Implementations
                         FirstName = c.FirstName,
                         LastName = c.LastName,
                         Email = c.Email,
+                        Phone = c.Phone,
                         MedicalRecordNumber = c.MedicalRecordNumber
                     })
-                    .ToListAsync();
+                    .FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
