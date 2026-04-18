@@ -1,7 +1,9 @@
 ﻿using backend.Data;
+using backend.DTOs.Patients;
 using backend.DTOs.Prescriptions;
 using backend.Models;
 using backend.Services.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Identity.Client;
 
 namespace backend.Services.Implementations
@@ -25,7 +27,8 @@ namespace backend.Services.Implementations
                 {
                     PatientId = prescriptionDto.PatientId,
                     DoctorName = prescriptionDto.DoctorName,
-                    Notes = prescriptionDto.Notes
+                    Notes = prescriptionDto.Notes,
+                    CreatedOn = DateTime.UtcNow
                 };
 
                 _context.Prescriptions.Add(prescription);
@@ -42,6 +45,7 @@ namespace backend.Services.Implementations
                             PrescriptionId = prescriptionId,
                             MedicineName = med.MedicineName,
                             Dosage = med.Dosage,
+                            DosageUnit = med.DosageUnit,
                             FrequencyPattern = med.FrequencyPattern,
                             MealTiming = med.MealTiming,
                             Duration = med.Duration,
@@ -79,6 +83,105 @@ namespace backend.Services.Implementations
             }
         }
 
-        
+        public async Task<List<GetPrescriptionDto>> GetPrevious5PrescriptionsAsync()
+        {
+            try
+            {
+                var prescriptions = await _context.Prescriptions
+                    .Include(p => p.Clients)
+                    .Include(p => p.PrescriptionMedicines)
+                    .Include(p => p.PrescriptionLabTests)
+                    .OrderByDescending(p => p.CreatedOn)
+                    .Take(5)
+                    .ToListAsync(); // ← materialise first
+
+                var result = prescriptions.Select(p => new GetPrescriptionDto
+                {
+                    Id = p.Id,
+                    PatientId = p.PatientId,
+                    DoctorName = p.DoctorName,
+                    Notes = p.Notes,
+                    CreatedOn = p.CreatedOn,
+                    SentOn = p.SentOn,
+                    SentVia = p.SentVia,
+                    Patient = new PatientSearchDto
+                    {
+                        FirstName = p.Clients.FirstOrDefault()?.FirstName ?? string.Empty,
+                        LastName = p.Clients.FirstOrDefault()?.LastName ?? string.Empty,
+                        Email = p.Clients.FirstOrDefault()?.Email,
+                        Phone = p.Clients.FirstOrDefault()?.Phone ?? string.Empty
+                    },
+                    Medicines = p.PrescriptionMedicines.Select(m => new PrescriptionMedicineDto
+                    {
+                        MedicineName = m.MedicineName,
+                        Dosage = m.Dosage,
+                        DosageUnit = m.DosageUnit,
+                        FrequencyPattern = m.FrequencyPattern,
+                        MealTiming = m.MealTiming,
+                        Duration = m.Duration,
+                        DurationType = m.DurationType
+                    }).ToList(),
+                    LabTests = p.PrescriptionLabTests.Select(l => new PrescriptionLabTestDto
+                    {
+                        TestName = l.TestName,
+                        Requirement = l.Requirement,
+                        Category = l.Category
+                    }).ToList()
+                }).ToList();
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error fetching previous prescriptions");
+                throw;
+            }
+        }
+
+        public async Task<List<PrescriptionTemplateDto>> GetPrescriptionTemplates()
+        {
+            try
+            {
+                var templates = await _context.PrescriptionTemplates
+                    .OrderByDescending(p => p.CreatedOn)
+                    .Select(p => new PrescriptionTemplateDto
+                    {
+                        TemplateId = p.TemplateId,
+                        Name = p.Name,
+                        Notes = p.Notes,
+                        Medicines = p.PrescriptionTemplateMedicines.Select(m => new TemplateMedicineDto
+                        {
+                            Id = m.Id,
+                            TemplateId = m.TemplateId,
+                            MedicineName = m.MedicineName,
+                            Dosage = m.Dosage,
+                            DosageUnit = m.DosageUnit,
+                            FrequencyPattern = m.FrequencyPattern,
+                            MealTiming = m.MealTiming,
+                            Duration = m.Duration,
+                            DurationType = m.DurationType
+                        }).ToList(),
+
+                        LabTests = p.PrescriptionTemplateLabTests.Select(l => new TemplateLabTestDto
+                        {
+                            TestName = l.TestName,
+                            Requirement = l.Requirement,
+                            Category = l.Category
+                        }).ToList()
+                    })
+                    .ToListAsync();
+               
+
+            return templates;
+            }
+            catch(Exception ex)
+            {
+                _logger.LogError(ex, "Error fetching prescription templates");
+                throw;
+            }
+        }
+
+
+
     }
 }
