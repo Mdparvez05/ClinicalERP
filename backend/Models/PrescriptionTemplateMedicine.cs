@@ -34,6 +34,10 @@ public partial class PrescriptionTemplateMedicine
     [Unicode(false)]
     public string? DurationType { get; set; }
 
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? DosageUnit { get; set; }
+
     [ForeignKey("TemplateId")]
     [InverseProperty("PrescriptionTemplateMedicines")]
     public virtual PrescriptionTemplate Template { get; set; } = null!;

@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Models;
 
-[Index("PrescriptionId", Name = "IX_PrescriptionMedicines_PrescriptionId")]
 public partial class PrescriptionMedicine
 {
     [Key]
@@ -14,13 +13,15 @@ public partial class PrescriptionMedicine
 
     public int PrescriptionId { get; set; }
 
-    public int? MedicineId { get; set; }
-
     [StringLength(150)]
     [Unicode(false)]
     public string? MedicineName { get; set; }
 
     public int? Dosage { get; set; }
+
+    [StringLength(10)]
+    [Unicode(false)]
+    public string? DosageUnit { get; set; }
 
     [StringLength(10)]
     [Unicode(false)]

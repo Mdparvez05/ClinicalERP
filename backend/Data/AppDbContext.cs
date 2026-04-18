@@ -121,11 +121,11 @@ public partial class AppDbContext : DbContext
 
         modelBuilder.Entity<PrescriptionMedicine>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Prescrip__3214EC07A8D2AC4E");
+            entity.HasKey(e => e.Id).HasName("PK__Prescrip__3214EC07CB51384A");
 
             entity.HasOne(d => d.Prescription).WithMany(p => p.PrescriptionMedicines)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Prescript__Presc__208CD6FA");
+                .HasConstraintName("FK__Prescript__Presc__31B762FC");
         });
 
         modelBuilder.Entity<PrescriptionTemplate>(entity =>

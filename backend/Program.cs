@@ -2,6 +2,8 @@ using backend.Data;
 using backend.Services.Interfaces;
 using backend.Services.Implementations;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
+using backend.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("logs/logs.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+builder.Host.UseSerilog();
+
 // FORCE local connection string - Override any environment variables
 string connectionString;
     connectionString = builder.Configuration.GetConnectionString("DefaultConnection") 
@@ -19,14 +27,10 @@ string connectionString;
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("Frontend", policy =>
-        policy.WithOrigins("http://localhost:5173", "https://localhost:5173")
+        policy.WithOrigins("http://localhost:5173", "https://localhost:5173", "https://localhost:7101")
               .AllowAnyHeader()
               .AllowAnyMethod());
 });
-
-// Check what the configuration would have returned
-var configConnectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-Console.WriteLine($"?? Configuration would return: {configConnectionString}");
 
 builder.Services.AddDbContext<AppDbContext>(options => 
     options.UseSqlServer(connectionString));
@@ -37,11 +41,12 @@ builder.Services.AddScoped<IDashboardService, DashboardService>();
 builder.Services.AddScoped<IAppointmentsService, AppointmentService>();
 builder.Services.AddScoped<IDoctorService, DoctorService>(); // ? Add missing DoctorService
 builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IPrescriptionService, PrescriptionService>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService>();
 builder.Services.AddScoped<ISettingsService, SettingsService>();
 
 var app = builder.Build();
-
+app.UseMiddleware<ExceptionMiddleware>();
 //app.MapGet("/", () => "Hello world!");
 
 // Configure the HTTP request pipeline.

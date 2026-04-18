@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using backend.DTOs.Patients;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Models;
@@ -37,4 +38,7 @@ public partial class Prescription
 
     [InverseProperty("Prescription")]
     public virtual ICollection<PrescriptionMedicine> PrescriptionMedicines { get; set; } = new List<PrescriptionMedicine>();
+    public Client Patient { get; set; }  // navigation property
+    public ICollection<Prescription>? Prescriptions { get; set; }
+    public IEnumerable<PatientSearchDto>? Clients { get; internal set; }
 }
