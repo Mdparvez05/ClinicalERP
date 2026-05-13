@@ -2,6 +2,7 @@
 using backend.DTOs.Appointments;
 using Microsoft.AspNetCore.Mvc;
 using backend.Services.Implementations;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace backend.Controllers
 {
@@ -47,17 +48,17 @@ namespace backend.Controllers
             catch (ArgumentException ex)
             {
                 _logger.LogWarning(ex, "Invalid argument for appointment creation");
-                return BadRequest(new { message = ex.Message });
+                throw;
             }
             catch (InvalidOperationException ex)
             {
                 _logger.LogWarning(ex, "Invalid operation for appointment creation");
-                return Conflict(new { message = ex.Message });
+                throw;
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error in CreateAppointment endpoint");
-                return StatusCode(500, new { message = "An error occurred while creating the appointment" });
+                throw;
             }
         }
 
@@ -86,43 +87,19 @@ namespace backend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error in GetAppointmentById endpoint");
-                return StatusCode(500, new { message = "An error occurred while retrieving the appointment" });
+                throw;
             }
         }
 
-        /// <summary>
-        /// Gets all appointments with optional filtering
-        /// </summary>
-        /// <param name="clientId">Filter by client ID</param>
-        /// <param name="employeeId">Filter by employee ID</param>
-        /// <param name="status">Filter by status</param>
-        /// <param name="dateFrom">Filter from date (yyyy-MM-dd)</param>
-        /// <param name="dateTo">Filter to date (yyyy-MM-dd)</param>
-        /// <returns>List of appointments</returns>
         [HttpGet]
-        public async Task<IActionResult> GetAppointments(
-            [FromQuery] int? clientId = null,
-            [FromQuery] int? employeeId = null,
-            [FromQuery] string? status = null,
-            [FromQuery] DateTime? dateFrom = null,
-            [FromQuery] DateTime? dateTo = null)
+        public async Task<IActionResult> GetAppointmentsAsync(int pageNumber, int pageSize)
         {
-            try
-            {
-                _logger.LogInformation("GetAppointments endpoint called with filters - ClientId: {ClientId}, EmployeeId: {EmployeeId}, Status: {Status}", 
-                    clientId, employeeId, status);
-                
-                var appointments = await _appointmentsService.GetAppointmentsAsync(
-                    clientId, employeeId, status, dateFrom, dateTo);
-                
-                return Ok(appointments);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error in GetAppointments endpoint");
-                return StatusCode(500, new { message = "An error occurred while retrieving appointments" });
-            }
+            var result = await _appointmentsService.GetAppointmentsAsync(pageNumber,pageSize);
+            return Ok(result);
+            
         }
+
+        
 
         /// <summary>
         /// Updates an existing appointment
@@ -155,12 +132,12 @@ namespace backend.Controllers
             catch (ArgumentException ex)
             {
                 _logger.LogWarning(ex, "Invalid argument for appointment update");
-                return BadRequest(new { message = ex.Message });
+                throw;
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error in UpdateAppointment endpoint");
-                return StatusCode(500, new { message = "An error occurred while updating the appointment" });
+                throw;
             }
         }
 
@@ -189,7 +166,7 @@ namespace backend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error in CancelAppointment endpoint");
-                return StatusCode(500, new { message = "An error occurred while cancelling the appointment" });
+                throw;
             }
         }
 
@@ -218,7 +195,7 @@ namespace backend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error in CompleteAppointment endpoint");
-                return StatusCode(500, new { message = "An error occurred while completing the appointment" });
+                throw;
             }
         }
 
@@ -241,7 +218,7 @@ namespace backend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error in GetAppointmentsByDate endpoint");
-                return StatusCode(500, new { message = "An error occurred while retrieving appointments for the date" });
+                throw;
             }
         }
 
@@ -273,7 +250,7 @@ namespace backend.Controllers
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error in CheckTimeSlotAvailability endpoint");
-                return StatusCode(500, new { message = "An error occurred while checking availability" });
+                throw;
             }
         }
         [HttpGet("get-labtests")]

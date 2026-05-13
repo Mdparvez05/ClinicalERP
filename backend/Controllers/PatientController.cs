@@ -19,11 +19,11 @@ namespace backend.Controllers
 
         // GET: api/Patient
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<PatientListDto>>> GetPatients()
+        public async Task<ActionResult<IEnumerable<PatientListDto>>> GetPatients(int pageNumber, int pageSize)
         {
             try
             {
-                var patients = await _patientService.GetPatientsAsync();
+                var patients = await _patientService.GetPatientsAsync(pageNumber, pageSize);
 
                 return Ok(patients);
             }

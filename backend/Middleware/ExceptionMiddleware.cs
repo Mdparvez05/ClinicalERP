@@ -1,55 +1,80 @@
-﻿using System.Net;
+﻿using backend.Data;
+using backend.Models;
 using System.Text.Json;
 
-namespace backend.Middleware
+public class ExceptionMiddleware
 {
-    public class ExceptionMiddleware
+    private readonly RequestDelegate _next;
+    private readonly ILogger<ExceptionMiddleware> _logger;
+    private readonly IServiceScopeFactory _scopeFactory;
+
+    public ExceptionMiddleware(
+        RequestDelegate next,
+        ILogger<ExceptionMiddleware> logger,
+        IServiceScopeFactory scopeFactory)
     {
-        private readonly RequestDelegate _next;
-        private readonly ILogger<ExceptionMiddleware> _logger;
+        _next = next;
+        _logger = logger;
+        _scopeFactory = scopeFactory;
+    }
 
-        public ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger)
+    public async Task Invoke(HttpContext context)
+    {
+        try
         {
-            _next = next;
-            _logger = logger;
+            await _next(context);
         }
-
-        public async Task Invoke(HttpContext context)
+        catch (Exception ex)
         {
-            try
+            _logger.LogError(ex, "Unhandled Exception");
+
+            int statusCode = StatusCodes.Status500InternalServerError;
+            string message = "Something went wrong";
+
+            if (ex is KeyNotFoundException)
             {
-                await _next(context);
+                statusCode = StatusCodes.Status404NotFound;
+                message = ex.Message;
             }
-            catch (Exception ex)
+            else if (ex is ArgumentException || ex is FormatException)
             {
-                // 🔥 Log full error (for developers)
-                _logger.LogError(ex, "Unhandled Exception");
-                int statusCode = context.Response.StatusCode;
-                string message = context.Response.ContentType;
-
-                statusCode = (int)HttpStatusCode.InternalServerError;
-                message = "application/json";
-                if (ex is KeyNotFoundException)
-                {
-                    statusCode = StatusCodes.Status404NotFound;
-                    message = "Resource not found";
-                }
-                // 🔥 Bad Request
-                else if (ex is ArgumentException || ex is FormatException)
-                {
-                    statusCode = StatusCodes.Status400BadRequest;
-                    message = "Invalid input";
-                }
-                var response = new
-                {
-                    success = false,
-                    message = "Something went wrong. Please try again later."
-                };
-
-                var json = JsonSerializer.Serialize(response);
-
-                await context.Response.WriteAsync(json);
+                statusCode = StatusCodes.Status400BadRequest;
+                message = ex.Message;
             }
+
+            using var scope = _scopeFactory.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            var httpContext = context;
+            var ip = httpContext.Connection.RemoteIpAddress?.ToString();
+            var userName = httpContext.User?.Identity?.Name;
+            var userId = httpContext.User?.FindFirst("sub")?.Value
+                         ?? httpContext.User?.FindFirst("id")?.Value;
+            var userAgent = httpContext.Request.Headers["User-Agent"].ToString();
+            var currentUrl = httpContext.Request.Path;
+            var previousUrl = httpContext.Request.Headers["Referer"].ToString();
+            db.ErrorLogs.Add(new ErrorLog
+            {
+                Message = ex.Message,
+                StackTrace = ex.StackTrace,
+                Path = currentUrl,
+                Method = httpContext.Request.Method,
+                IPAddress = ip,
+                UserName = userName,
+                UserId = userId,
+                UserAgent = userAgent,
+                CurrentUrl = currentUrl,
+                PreviousUrl = previousUrl,
+                CreatedAt = DateTime.UtcNow
+            });
+            await db.SaveChangesAsync();
+            context.Response.StatusCode = statusCode;
+            context.Response.ContentType = "application/json";
+            var response = new
+            {
+                success = false,
+                message
+            };
+            await context.Response.WriteAsync(JsonSerializer.Serialize(response));
         }
     }
 }

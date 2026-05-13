@@ -88,7 +88,7 @@ namespace backend.Services.Implementations
             try
             {
                 var prescriptions = await _context.Prescriptions
-                    .Include(p => p.Clients)
+                    .Include(p => p.Patient)
                     .Include(p => p.PrescriptionMedicines)
                     .Include(p => p.PrescriptionLabTests)
                     .OrderByDescending(p => p.CreatedOn)
@@ -106,10 +106,10 @@ namespace backend.Services.Implementations
                     SentVia = p.SentVia,
                     Patient = new PatientSearchDto
                     {
-                        FirstName = p.Clients.FirstOrDefault()?.FirstName ?? string.Empty,
-                        LastName = p.Clients.FirstOrDefault()?.LastName ?? string.Empty,
-                        Email = p.Clients.FirstOrDefault()?.Email,
-                        Phone = p.Clients.FirstOrDefault()?.Phone ?? string.Empty
+                        FirstName = p.Patient.FirstName ?? string.Empty,
+                        LastName = p.Patient.LastName ?? string.Empty,
+                        Email = p.Patient.Email,
+                        Phone = p.Patient.Phone ?? string.Empty
                     },
                     Medicines = p.PrescriptionMedicines.Select(m => new PrescriptionMedicineDto
                     {

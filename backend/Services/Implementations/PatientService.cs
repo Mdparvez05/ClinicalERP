@@ -17,14 +17,21 @@ namespace backend.Services.Implementations
             _logger = logger;
         }
 
-        public async Task<List<PatientListDto>> GetPatientsAsync()
+        
+        public async Task<PagedResult<PatientListDto>> GetPatientsAsync(int pageNumber, int pageSize)
         {
             try
             {
-                var patients = await _context.Clients
-                    .Where(c => c.IsActive)
+                var query = _context.Clients
+                    .Where(c => c.IsActive);
+
+                var totalCount = await query.CountAsync();
+
+                var patients = await query
                     .OrderBy(c => c.LastName)
                     .ThenBy(c => c.FirstName)
+                    .Skip((pageNumber - 1) * pageSize)
+                    .Take(pageSize)
                     .Select(c => new PatientListDto
                     {
                         Id = c.Id,
@@ -36,12 +43,18 @@ namespace backend.Services.Implementations
                         Email = c.Email,
                         Phone = c.Phone,
                         LastAppointmentDate = c.LastAppointmentDate,
-                        //MedicalRecordNumber = c.MedicalRecordNumber,
+                        MedicalRecordNumber = c.MedicalRecordNumber,
                         IsActive = c.IsActive
                     })
                     .ToListAsync();
 
-                return patients;
+                return new PagedResult<PatientListDto>
+                {
+                    Data = patients,
+                    TotalCount = totalCount,
+                    PageNumber = pageNumber,
+                    PageSize = pageSize
+                };
             }
             catch (Exception ex)
             {

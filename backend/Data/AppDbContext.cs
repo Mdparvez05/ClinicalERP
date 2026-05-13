@@ -37,6 +37,7 @@ public partial class AppDbContext : DbContext
     public virtual DbSet<SystemOption> SystemOptions { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+    public virtual DbSet<ErrorLog> ErrorLogs { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

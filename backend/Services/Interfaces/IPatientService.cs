@@ -1,10 +1,11 @@
 using backend.DTOs.Patients;
+using backend.Models;
 
 namespace backend.Services.Interfaces
 {
     public interface IPatientService
     {
-        Task<List<PatientListDto>> GetPatientsAsync();
+        Task<PagedResult<PatientListDto>> GetPatientsAsync(int pageNumber, int pageSize);
         Task<PatientDetailDto?> GetPatientByIdAsync(int id);
         Task<PatientSearchDto?> SearchPatientsAsync(string term);
         Task<PatientDetailDto> CreatePatientAsync(CreatePatientDto patientDto);

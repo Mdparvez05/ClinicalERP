@@ -1,5 +1,6 @@
 ﻿using backend.DTOs.Appointments;
 using backend.DTOs.Dashboard;
+using backend.Models;
 
 namespace backend.Services.Interfaces
 {
@@ -28,8 +29,7 @@ namespace backend.Services.Interfaces
         /// <param name="dateFrom">Filter from date (optional)</param>
         /// <param name="dateTo">Filter to date (optional)</param>
         /// <returns>List of appointments</returns>
-        Task<List<AppointmentDetailDto>> GetAppointmentsAsync(int? clientId = null, int? employeeId = null, 
-            string? status = null, DateTime? dateFrom = null, DateTime? dateTo = null);
+        Task<PagedResult<AppointmentDetailDto>> GetAppointmentsAsync(int pageNumber , int pageSize);
 
         /// <summary>
         /// Updates an existing appointment

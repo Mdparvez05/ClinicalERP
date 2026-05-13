@@ -1,7 +1,10 @@
 ﻿using backend.Data;
 using backend.DTOs.Appointments;
+using backend.DTOs.Patients;
 using backend.Models;
 using backend.Services.Interfaces;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Org.BouncyCastle.Bcpg;
@@ -143,63 +146,44 @@ namespace backend.Services.Implementations
             }
         }
 
-        public async Task<List<AppointmentDetailDto>> GetAppointmentsAsync(int? clientId = null, int? employeeId = null, 
-            string? status = null, DateTime? dateFrom = null, DateTime? dateTo = null)
+       
+        public async Task<PagedResult<AppointmentDetailDto>> GetAppointmentsAsync(int pageNumber, int pageSize)
         {
-            try
+            var totalCount = await _context.Appointments.CountAsync();
+
+            var appointments = await _context.Appointments
+                                    .OrderBy(a => a.ScheduledOn)
+                                    .Skip((pageNumber - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .Select(a => new AppointmentDetailDto
+                                    {
+                                        Id = a.Id,
+                                        Name = a.Name,
+                                        Description = a.Description,
+                                        ScheduledOn = a.ScheduledOn,
+                                        ClosedOn = a.ClosedOn,
+                                        Notes = a.Notes,
+                                        Type = a.Type,
+                                        TypeId = a.TypeId,
+                                        AppointmentStatus = a.AppointmentStatus,
+                                        ClientId = a.ClientId,
+                                        ClientName = a.ClientName,
+                                        AssignedEmployeeId = a.AssignedEmployeeId,
+                                        AssignedEmployeeName = a.AssignedEmployeeName,
+                                        PrescribedBy = a.PrescribedBy,
+                                        ParentId = a.ParentId
+                                    })
+                                    .ToListAsync();
+
+            return new PagedResult<AppointmentDetailDto>
             {
-                _logger.LogInformation("Fetching appointments with filters");
+                Data = appointments,
+                TotalCount = totalCount,
+                PageNumber = pageNumber,
+                PageSize = pageSize
+            };
 
-                var query = _context.Appointments.AsQueryable();
-
-                // Apply filters
-                if (clientId.HasValue)
-                    query = query.Where(a => a.ClientId == clientId.Value);
-
-                if (employeeId.HasValue)
-                    query = query.Where(a => a.AssignedEmployeeId == employeeId.Value);
-
-                if (!string.IsNullOrEmpty(status))
-                    query = query.Where(a => a.AppointmentStatus == status);
-
-                if (dateFrom.HasValue)
-                    query = query.Where(a => a.ScheduledOn >= dateFrom.Value);
-
-                if (dateTo.HasValue)
-                    query = query.Where(a => a.ScheduledOn <= dateTo.Value);
-                query = query.Where(a => a.TypeId == 16);
-                var appointments = await query
-                    .Select(a => new AppointmentDetailDto
-                    {
-                        Id = a.Id,
-                        Name = a.Name,
-                        Description = a.Description,
-                        ScheduledOn = a.ScheduledOn,
-                        ClosedOn = a.ClosedOn,
-                        Notes = a.Notes,
-                        Type = a.Type,
-                        TypeId = a.TypeId,
-                        AppointmentStatus = a.AppointmentStatus,
-                        ClientId = a.ClientId,
-                        ClientName = a.ClientName,
-                        AssignedEmployeeId = a.AssignedEmployeeId,
-                        AssignedEmployeeName = a.AssignedEmployeeName,
-                        PrescribedBy = a.PrescribedBy,
-                        ParentId = a.ParentId
-                    })
-                    .OrderBy(a => a.ScheduledOn)
-                    .ToListAsync();
-
-                _logger.LogInformation("Successfully retrieved {Count} appointments", appointments.Count);
-                return appointments;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Error occurred while fetching appointments");
-                throw;
-            }
         }
-
         public async Task<AppointmentDetailDto> UpdateAppointmentAsync(UpdateAppointmentDto appointmentDto)
         {
             try
@@ -329,20 +313,38 @@ namespace backend.Services.Implementations
             }
         }
 
-       
+
 
         public async Task<List<AppointmentDetailDto>> GetAppointmentsByDateAsync(DateTime date)
         {
             try
             {
                 _logger.LogInformation("Fetching appointments for date: {Date}", date.ToString("yyyy-MM-dd"));
-                
-                var startOfDay = date.Date;
-                var endOfDay = startOfDay.AddDays(1);
-
-                return await GetAppointmentsAsync(
-                    dateFrom: startOfDay, 
-                    dateTo: endOfDay);
+                    var startOfDay = date.Date;
+                    var endOfDay = startOfDay.AddDays(1);
+                    var appointments = await _context.Appointments
+                    .Select(a => new AppointmentDetailDto
+                    {
+                        Id = a.Id,
+                        Name = a.Name,
+                        Description = a.Description,
+                        ScheduledOn = a.ScheduledOn,
+                        ClosedOn = a.ClosedOn,
+                        Notes = a.Notes,
+                        Type = a.Type,
+                        TypeId = a.TypeId,
+                        AppointmentStatus = a.AppointmentStatus,
+                        ClientId = a.ClientId,
+                        ClientName = a.ClientName,
+                        AssignedEmployeeId = a.AssignedEmployeeId,
+                        AssignedEmployeeName = a.AssignedEmployeeName,
+                        PrescribedBy = a.PrescribedBy,
+                        ParentId = a.ParentId
+                    })
+                     .Where(c => c.ScheduledOn == startOfDay)
+                    .ToListAsync();
+                 
+                return appointments;
             }
             catch (Exception ex)
             {
