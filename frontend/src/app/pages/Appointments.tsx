@@ -26,6 +26,12 @@ type AppointmentRow = {
   type: string;
   status: string;
 };
+type PagedResult<T> = {
+  data: T[];
+  totalCount: number;
+  pageNumber: number;
+  pageSize: number;
+};
 
 type PatientSearchResult = {
   id: number;
@@ -66,6 +72,8 @@ const getDoctorDisplayName = (doctor: DoctorOption) => {
   //return `${doctor.name ?? ''}`.trim();
 };
 
+
+
 export function Appointments() {
   const [isAddOpen, setIsAddOpen] = useState(false);
   const navigate = useNavigate();
@@ -96,6 +104,10 @@ export function Appointments() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [totalCount, setTotalCount] = useState(0);
+  const [page, setPage] = useState(1);
+  const pageSize = 5;
+const totalPages = Math.ceil(totalCount  / pageSize);
 
   const appointmentRows = useMemo<AppointmentRow[]>(() => {
     return appointments.map((appt) => ({
@@ -135,21 +147,22 @@ export function Appointments() {
       setIsLoading(true);
       setError(null);
 
-      const response = await fetch(`${apiBaseUrl}/api/dashboard/total-appointments`, {
+      const response = await fetch(`${apiBaseUrl}/api/appointments?pageNumber=${page}&pageSize=${pageSize}`, {
         signal,
       });
 
       if (!response.ok) throw new Error('Failed to load appointments');
 
-      const data = (await response.json()) as AppointmentDto[];
-      setAppointments(Array.isArray(data) ? data : []);
+      const data = (await response.json()) as PagedResult<AppointmentDto>;
+      setAppointments(Array.isArray(data.data) ? data.data : []);
+      setTotalCount(data.totalCount);
     } catch (err) {
       if ((err as Error).name === 'AbortError') return;
       setError((err as Error).message ?? 'Failed to load appointments');
     } finally {
       setIsLoading(false);
     }
-  }, [apiBaseUrl]);
+  }, [apiBaseUrl , page, pageSize]);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -157,7 +170,7 @@ export function Appointments() {
     loadAppointments(controller.signal);
 
     return () => controller.abort();
-  }, [loadAppointments]);
+  }, [loadAppointments, page , pageSize]);
 
   useEffect(() => {
     if (!isAddOpen) {
@@ -373,7 +386,7 @@ export function Appointments() {
               type="text"
               placeholder="Search appointments..."
               value={searchText}
-              onChange={(event) => setSearchText(event.target.value)}
+              onChange={(event) => {setSearchText(event.target.value); setPage(1)} }
               className="w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
             />
           </div>
@@ -382,7 +395,7 @@ export function Appointments() {
             <select
               className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
               value={statusFilter}
-              onChange={(event) => setStatusFilter(event.target.value)}
+              onChange={(event) => {setStatusFilter(event.target.value); setPage(1)} }
             >
               <option>All Status</option>
               {appointmentStatuses.map((status) => (
@@ -394,7 +407,7 @@ export function Appointments() {
             <select
               className="px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500"
               value={typeFilter}
-              onChange={(event) => setTypeFilter(event.target.value)}
+              onChange={(event) => {setTypeFilter(event.target.value); setPage(1)} }
             >
               <option>All Types</option>
               {appointmentTypes.map((type) => (
@@ -743,6 +756,33 @@ export function Appointments() {
                 {isSubmitting ? 'Scheduling...' : 'Schedule Appointment'}
               </button>
             </div>
+          </div>
+        </div>
+      )}
+      {!isLoading && totalCount > 0 && (
+        <div className="flex items-center justify-between px-6 py-4 border-t text-sm text-gray-600">
+          <span>
+            Showing {Math.min((page - 1) * pageSize + 1, totalCount)}
+            -{Math.min(page * pageSize, totalCount)} of {totalCount}
+          </span>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => setPage((current) => Math.max(1, current - 1))}
+              disabled={page === 1}
+              className="px-3 py-1 rounded border border-gray-200 disabled:opacity-50"
+            >
+              Previous
+            </button>
+            <span>Page {page} of {totalPages}</span>
+            <button
+              type="button"
+              onClick={() => setPage((current) => Math.min(totalPages, current + 1))}
+              disabled={page === totalPages}
+              className="px-3 py-1 rounded border border-gray-200 disabled:opacity-50"
+            >
+              Next
+            </button>
           </div>
         </div>
       )}

@@ -26,6 +26,7 @@ namespace backend.Services.Implementations
             try
             {
                 _logger.LogInformation("Fetching today's appointments");
+                _logger.LogInformation("Test");
 
                 var today = DateTime.Today;
                 var tomorrow = today.AddDays(1);

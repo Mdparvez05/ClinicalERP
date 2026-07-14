@@ -4,42 +4,8 @@ import { useState, useEffect, useRef } from 'react';
 
 const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? 'https://localhost:5001';
 
-const prevPrescriptions = [
-  {
-    id: 1,
-    rxNumber: 'RX001',
-    patient: 'John Smith',
-    date: '2024-01-18',
-    doctor: 'Dr. Michael Chen',
-    diagnosis: 'Hypertension',
-    medications: [
-      { name: 'Amlodipine', dosage: '5mg, Once daily for 30 days', instructions: 'Take in the morning' },
-      { name: 'Losartan', dosage: '50mg, Once daily for 30 days', instructions: 'Take with food' },
-    ],
-    notes: 'Follow up in 4 weeks. Monitor blood pressure daily.',
-    status: 'Sent',
-  },
-  {
-    id: 2,
-    rxNumber: 'RX002',
-    patient: 'Emma Wilson',
-    date: '2024-01-18',
-    doctor: 'Dr. Sarah Johnson',
-    diagnosis: 'Common Cold',
-    medications: [
-      { name: 'Paracetamol', dosage: '500mg, Three times daily for 5 days', instructions: 'Take after meals' },
-    ],
-    notes: 'Rest and stay hydrated.',
-    status: 'Dispensed',
-  },
-];
 
-const templates = [
-  { name: 'General Checkup', count: 18 },
-  { name: 'Cold & Flu', count: 12 },
-  { name: 'Hypertension Follow-up', count: 9 },
-  { name: 'Diabetes Review', count: 7 },
-];
+
 
 // Common medicines for quick selection
 const commonMedicines = [
@@ -109,6 +75,8 @@ export function OPDRx() {
   const [showPatientForm, setShowPatientForm] = useState(false);
   const [loadingPatients, setLoadingPatients] = useState(false);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [prevPrescriptions, setPrevPrescriptions] = useState<any[]>([]);
+  const [prescriptionTemplates, setPrescriptionTemplates] = useState<any[]>([]);
   
   const [headerData, setHeaderData] = useState({
     patientFirstName: '',
@@ -132,9 +100,52 @@ export function OPDRx() {
   });
 
   const [newLabTest, setNewLabTest] = useState<'open' | null>(null);
-
+  
   const searchContainerRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const fetchPrevPrescriptions = async () => {
+      try{
+        const response = await fetch(`${apiBaseUrl}/api/Prescription/recent`);
+        if (response.ok) {
+          const data = await response.json();
+          setPrevPrescriptions(data);
+        }
+      }
+      catch(error){
+        console.error('Error fetching previous prescriptions:', error);
+      }
+    };
+    fetchPrevPrescriptions();
+  }, []);
 
+  useEffect(() => {
+    const fetchTemplates = async () => {
+      try{
+        const response = await fetch(`${apiBaseUrl}/api/Prescription/templates`);
+        if (!response.ok) {
+          const contentType = response.headers.get('content-type');
+          console.error(`Error fetching prescription templates. Status: ${response.status}`);
+          if (contentType?.includes('text/html')) {
+            console.error('API returned HTML instead of JSON. Check the API endpoint or server configuration.');
+          }
+          return;
+        }
+        const contentType = response.headers.get('content-type');
+        if (!contentType?.includes('application/json')) {
+          console.error(`Expected JSON but got ${contentType}. Response may be an error page.`);
+          return;
+        }
+        const data = await response.json();
+        setPrescriptionTemplates(data);
+      }
+      catch(error){
+        console.error('Error fetching prescription templates:', error);
+      }
+    }
+    fetchTemplates();
+  }, []);
+
+  
   // Handle click outside the search dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -162,23 +173,37 @@ export function OPDRx() {
             `${apiBaseUrl}/api/Patient/search/${patientSearch}`
           );
            
-          if (response.ok) {
-            const data = await response.json();
-            console.log('API Response:', data);
-            // Handle various response formats
-            let suggestions = [];
-            if (Array.isArray(data)) {
-              suggestions = data;
-            } else if (data?.data && Array.isArray(data.data)) {
-              suggestions = data.data;
-            } else if (data?.results && Array.isArray(data.results)) {
-              suggestions = data.results;
-            } else if (data && typeof data === 'object' && !Array.isArray(data)) {
-              // Single object response - wrap in array
-              suggestions = [data];
+          if (!response.ok) {
+            const contentType = response.headers.get('content-type');
+            console.error(`Patient search failed. Status: ${response.status}`);
+            if (contentType?.includes('text/html')) {
+              console.error('API returned HTML instead of JSON. Check the API endpoint or server configuration.');
             }
-            setPatientSuggestions(suggestions);
+            setPatientSuggestions([]);
+            return;
           }
+          
+          const contentType = response.headers.get('content-type');
+          if (!contentType?.includes('application/json')) {
+            console.error(`Expected JSON but got ${contentType}. Response may be an error page.`);
+            setPatientSuggestions([]);
+            return;
+          }
+          
+          const data = await response.json();
+          // Handle various response formats
+          let suggestions = [];
+          if (Array.isArray(data)) {
+            suggestions = data;
+          } else if (data?.data && Array.isArray(data.data)) {
+            suggestions = data.data;
+          } else if (data?.results && Array.isArray(data.results)) {
+            suggestions = data.results;
+          } else if (data && typeof data === 'object' && !Array.isArray(data)) {
+            // Single object response - wrap in array
+            suggestions = [data];
+          }
+          setPatientSuggestions(suggestions);
         } catch (error) {
           console.error('Patient search error:', error);
           setPatientSuggestions([]);
@@ -267,15 +292,16 @@ export function OPDRx() {
       const medicinesDto = medicines.map(med => {
         // Extract number from dosage string (e.g., "500mg" → 500)
         const dosageNumber = parseInt(med.dosage.replace(/[a-zA-Z\s\/]/g, '')) || 0;
-        
+        const dosageUnit = med.dosage.replace(/[0-9.]/g, '').trim() || medicineDosageMap[med.name]?.unit || '';
         // Parse duration (e.g., "7 days" → duration: 7, durationType: "days")
         const durationParts = med.duration.trim().split(/\s+/);
         const duration = parseInt(durationParts[0]) || 1;
+        
         const durationType = durationParts[1] || 'days';
-
         return {
           MedicineName: med.name,
           Dosage: dosageNumber,
+          DosageUnit: dosageUnit,
           FrequencyPattern: med.pattern,
           MealTiming: med.mealTiming,
           Duration: duration,
@@ -300,24 +326,40 @@ export function OPDRx() {
       };
 
       // Send to backend
-      const response = await fetch('https://your-api-endpoint/api/Prescription/Create', {
+      const response = await fetch(`${apiBaseUrl}/api/Prescription`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(prescriptionDto),
       });
+      const response2 = await fetch(`${apiBaseUrl}/api/Prescription/save`);
 
-      if (response.ok) {
-        const result = await response.json();
-        alert(`Prescription created successfully! ID: ${result}`);
-        // Reset form
-        setMedicines([]);
-        setLabTests([]);
-        setSelectedPatient(null);
-      } else {
-        alert('Failed to create prescription');
+      if (!response.ok) {
+        const contentType = response.headers.get('content-type');
+        console.error(`Failed to create prescription. Status: ${response.status}`);
+        if (contentType?.includes('text/html')) {
+          console.error('API returned HTML instead of JSON. Check the API endpoint or server configuration.');
+        }
+        let errorMessage = 'Failed to create prescription';
+        if (contentType?.includes('application/json')) {
+          try {
+            const errorData = await response.json();
+            errorMessage = errorData.message || errorMessage;
+          } catch (e) {
+            // Error parsing JSON error response
+          }
+        }
+        alert(errorMessage);
+        return;
       }
+      
+      const result = await response.json();
+      alert(`Prescription created successfully! ID: ${result}`);
+      // Reset form
+      setMedicines([]);
+      setLabTests([]);
+      setSelectedPatient(null);
     } catch (error) {
       console.error('Error sending prescription:', error);
       alert('Error sending prescription');
@@ -872,12 +914,16 @@ export function OPDRx() {
                         <div>
                           <div className="flex items-center gap-2 text-sm text-gray-500 mb-1">
                             <span>#{rx.id}</span>
-                            <span className="px-2 py-1 rounded-full bg-gray-100 text-gray-700 text-xs">{rx.status}</span>
+                            {/* <span className="px-2 py-1 rounded-full bg-gray-100 text-gray-700 text-xs">{rx.status}</span> */}
                           </div>
-                          <div className="text-base font-semibold">{rx.patient}</div>
-                          <div className="text-sm text-gray-600">{rx.diagnosis}</div>
+                          <div className="text-base font-semibold">
+                            {typeof rx.patient === 'string' 
+                              ? rx.patient 
+                              : `${rx.patient?.firstName || ''} ${rx.patient?.lastName || ''}`.trim()}
+                          </div>
+                          <div className="text-sm text-gray-600">{rx.diagnosis || 'No diagnosis'}</div>
                         </div>
-                        <div className="text-sm text-gray-500">{rx.doctor} • {rx.date}</div>
+                        <div className="text-sm text-gray-500">{rx.doctor || ''} • {rx.date}</div>
                       </div>
                     </div>
                   ))}
@@ -904,14 +950,14 @@ export function OPDRx() {
               <input type="text" placeholder="Search templates..." className="w-full outline-none" />
             </div>
             <div className="space-y-3">
-              {templates.map((template, index) => (
+              {prescriptionTemplates.map((template, index) => (
                 <div key={index} className="flex items-center gap-3 rounded-2xl border border-gray-200 px-3 py-3">
                   <div className="w-11 h-11 bg-primary-50 text-primary-600 rounded-xl flex items-center justify-center">
                     <FileText size={18} />
                   </div>
                   <div className="min-w-0">
                     <div className="font-medium truncate">{template.name}</div>
-                    <div className="text-sm text-gray-500">{template.count} uses</div>
+                    {/* <div className="text-sm text-gray-500">{template.count} uses</div> */}
                   </div>
                   <button className="ml-auto text-primary-600 hover:text-primary-700 text-sm font-medium">
                     Use

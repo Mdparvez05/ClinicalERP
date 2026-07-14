@@ -15,6 +15,13 @@ type PatientListDto = {
   isActive: boolean;
 };
 
+type PagedResult<T> = {
+  data: T[];
+  totalCount: number;
+  pageNumber: number;
+  pageSize: number;
+};
+
 type PatientDetailDto = {
   id: number;
   firstName: string;
@@ -99,6 +106,7 @@ export function Patients() {
   const [isEditOpen, setIsEditOpen] = useState(false);
   const [editingPatientId, setEditingPatientId] = useState<number | null>(null);
   const [patients, setPatients] = useState<PatientListDto[]>([]);
+  const [totalCount, setTotalCount] = useState(0);
   const [searchText, setSearchText] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -109,6 +117,7 @@ export function Patients() {
   const apiBaseUrl = (import.meta.env.VITE_API_BASE_URL as string | undefined) ?? 'https://localhost:5001';
 
   const pageSize = 10;
+  const totalPages = Math.max(1, Math.ceil(totalCount / pageSize));
 
   const filteredPatients = useMemo(() => {
     const query = searchText.trim().toLowerCase();
@@ -124,12 +133,6 @@ export function Patients() {
     });
   }, [patients, searchText]);
 
-  const totalPages = Math.max(1, Math.ceil(filteredPatients.length / pageSize));
-  const pagedPatients = useMemo(() => {
-    const start = (page - 1) * pageSize;
-    return filteredPatients.slice(start, start + pageSize);
-  }, [filteredPatients, page, pageSize]);
-
   useEffect(() => {
     const controller = new AbortController();
 
@@ -138,11 +141,15 @@ export function Patients() {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch(`${apiBaseUrl}/api/Patient`, { signal: controller.signal });
+        const response = await fetch(
+          `${apiBaseUrl}/api/Patient?pageNumber=${page}&pageSize=${pageSize}`,
+          { signal: controller.signal }
+        );
         if (!response.ok) throw new Error('Failed to load patients');
 
-        const data = (await response.json()) as PatientListDto[];
-        setPatients(Array.isArray(data) ? data : []);
+        const data = (await response.json()) as PagedResult<PatientListDto>;
+        setPatients(Array.isArray(data.data) ? data.data : []);
+        setTotalCount(data.totalCount);
       } catch (err) {
         if ((err as Error).name === 'AbortError') return;
         setError((err as Error).message ?? 'Failed to load patients');
@@ -154,10 +161,10 @@ export function Patients() {
     loadPatients();
 
     return () => controller.abort();
-  }, [apiBaseUrl]);
+  }, [apiBaseUrl, page, pageSize]);
 
   useEffect(() => {
-    if (page > totalPages) setPage(totalPages);
+    if (page > totalPages && totalPages > 0) setPage(totalPages);
   }, [page, totalPages]);
 
   const resetForm = () => {
@@ -211,10 +218,11 @@ export function Patients() {
   };
 
   const reloadPatients = async () => {
-    const response = await fetch(`${apiBaseUrl}/api/Patient`);
+    const response = await fetch(`${apiBaseUrl}/api/Patient?pageNumber=${page}&pageSize=${pageSize}`);
     if (!response.ok) throw new Error('Failed to load patients');
-    const data = (await response.json()) as PatientListDto[];
-    setPatients(Array.isArray(data) ? data : []);
+    const data = (await response.json()) as PagedResult<PatientListDto>;
+    setPatients(Array.isArray(data.data) ? data.data : []);
+    setTotalCount(data.totalCount);
   };
 
   const handleSubmit = async () => {
@@ -357,7 +365,7 @@ export function Patients() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {!isLoading && pagedPatients.length === 0 && (
+              {!isLoading && filteredPatients.length === 0 && (
                 <tr>
                   <td className="px-6 py-4 text-sm text-gray-500" colSpan={6}>
                     No patients found.
@@ -371,7 +379,7 @@ export function Patients() {
                   </td>
                 </tr>
               )}
-              {!isLoading && pagedPatients.map((patient) => (
+              {!isLoading && filteredPatients.map((patient) => (
                 <tr key={patient.id} className="hover:bg-gray-50">
                   <td className="px-6 py-4">
                     <div className="flex items-center gap-3">
@@ -410,11 +418,11 @@ export function Patients() {
           </table>
         </div>
 
-        {!isLoading && filteredPatients.length > 0 && (
+        {!isLoading && totalCount > 0 && (
           <div className="flex items-center justify-between px-6 py-4 border-t text-sm text-gray-600">
             <span>
-              Showing {Math.min((page - 1) * pageSize + 1, filteredPatients.length)}
-              -{Math.min(page * pageSize, filteredPatients.length)} of {filteredPatients.length}
+              Showing {Math.min((page - 1) * pageSize + 1, totalCount)}
+              -{Math.min(page * pageSize, totalCount)} of {totalCount}
             </span>
             <div className="flex items-center gap-2">
               <button

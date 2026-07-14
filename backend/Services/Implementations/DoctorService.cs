@@ -13,7 +13,7 @@ namespace backend.Services.Implementations
     {
         private readonly AppDbContext _context;
         private readonly ILogger<DoctorService> _logger;
-
+         
         public DoctorService(AppDbContext context, ILogger<DoctorService> logger)
         {
             _context = context;
